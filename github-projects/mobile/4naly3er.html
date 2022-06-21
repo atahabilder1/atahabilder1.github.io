@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>4naly3er</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0f0f0f 0%, #1a1a2a 50%, #252540 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .container {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .header-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #06b6d4, #0891b2);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      margin: 0 auto 12px;
+    }
+    .header h1 {
+      color: #fff;
+      font-size: 26px;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+    .header p {
+      color: #94a3b8;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+    .github-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.1);
+      padding: 6px 16px;
+      border-radius: 20px;
+      color: #06b6d4;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+    .section {
+      margin-bottom: 24px;
+    }
+    .section-title {
+      color: #06b6d4;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .analysis-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .analysis-card {
+      background: rgba(6,182,212,0.1);
+      border: 1px solid rgba(6,182,212,0.3);
+      border-radius: 14px;
+      padding: 16px 12px;
+      text-align: center;
+    }
+    .analysis-card.full-width {
+      grid-column: span 2;
+    }
+    .analysis-icon {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+    .analysis-title {
+      color: #06b6d4;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .analysis-desc {
+      color: #94a3b8;
+      font-size: 11px;
+    }
+    .cap-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    .cap-item {
+      background: rgba(6,182,212,0.05);
+      border-radius: 12px;
+      padding: 14px;
+      text-align: center;
+    }
+    .cap-icon {
+      font-size: 22px;
+      margin-bottom: 6px;
+    }
+    .cap-label {
+      color: #e2e8f0;
+      font-size: 11px;
+    }
+    .detections {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    .detection {
+      background: rgba(239,68,68,0.1);
+      border: 1px solid rgba(239,68,68,0.3);
+      border-radius: 12px;
+      padding: 14px;
+      text-align: center;
+    }
+    .detection-icon {
+      font-size: 22px;
+      margin-bottom: 6px;
+    }
+    .detection-name {
+      color: #fca5a5;
+      font-size: 11px;
+      font-weight: 500;
+    }
+    .tech-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .tech-tag {
+      background: rgba(6,182,212,0.15);
+      padding: 6px 12px;
+      border-radius: 12px;
+      color: #67e8f9;
+      font-size: 11px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="header-icon">🔬</div>
+      <h1>4naly3er</h1>
+      <p>Enhanced Static Analysis for Smart Contract Vulnerabilities</p>
+      <div class="github-badge">Security • Solidity</div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">🔍 Analysis Methods</div>
+      <div class="analysis-grid">
+        <div class="analysis-card">
+          <div class="analysis-icon">🔍</div>
+          <div class="analysis-title">Pattern Matching</div>
+          <div class="analysis-desc">Identifies vulnerability patterns</div>
+        </div>
+        <div class="analysis-card">
+          <div class="analysis-icon">📊</div>
+          <div class="analysis-title">Flow Analysis</div>
+          <div class="analysis-desc">Traces execution paths</div>
+        </div>
+        <div class="analysis-card full-width">
+          <div class="analysis-icon">📋</div>
+          <div class="analysis-title">Detailed Reports</div>
+          <div class="analysis-desc">Detailed remediation tips</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">🎯 Detection Capabilities</div>
+      <div class="cap-grid">
+        <div class="cap-item">
+          <div class="cap-icon">🔄</div>
+          <div class="cap-label">Reentrancy</div>
+        </div>
+        <div class="cap-item">
+          <div class="cap-icon">🔐</div>
+          <div class="cap-label">Access Control</div>
+        </div>
+        <div class="cap-item">
+          <div class="cap-icon">⛽</div>
+          <div class="cap-label">Gas Issues</div>
+        </div>
+        <div class="cap-item">
+          <div class="cap-icon">📞</div>
+          <div class="cap-label">Unsafe Calls</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">⚠️ Vulnerabilities Detected</div>
+      <div class="detections">
+        <div class="detection">
+          <div class="detection-icon">🔢</div>
+          <div class="detection-name">Math Errors</div>
+        </div>
+        <div class="detection">
+          <div class="detection-icon">⏰</div>
+          <div class="detection-name">Timestamp</div>
+        </div>
+        <div class="detection">
+          <div class="detection-icon">🎲</div>
+          <div class="detection-name">Randomness</div>
+        </div>
+        <div class="detection">
+          <div class="detection-icon">💀</div>
+          <div class="detection-name">Selfdestruct</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">🛠️ Tech Stack</div>
+      <div class="tech-row">
+        <span class="tech-tag">TypeScript</span>
+        <span class="tech-tag">Solidity</span>
+        <span class="tech-tag">Ethereum</span>
+        <span class="tech-tag">Security</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

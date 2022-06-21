@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DocuMind</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #18181b 0%, #27272a 50%, #3f3f46 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .container {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .header-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #a78bfa, #8b5cf6);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      margin: 0 auto 12px;
+    }
+    .header h1 {
+      color: #fff;
+      font-size: 26px;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+    .header p {
+      color: #a1a1aa;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+    .github-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.1);
+      padding: 6px 16px;
+      border-radius: 20px;
+      color: #a78bfa;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+    .section {
+      margin-bottom: 24px;
+    }
+    .section-title {
+      color: #a78bfa;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .inputs {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .input-type {
+      background: rgba(167,139,250,0.1);
+      border: 2px solid rgba(167,139,250,0.3);
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+    }
+    .input-icon { font-size: 28px; margin-bottom: 8px; }
+    .input-label { color: #a78bfa; font-size: 12px; font-weight: 600; }
+    .rag-box {
+      background: linear-gradient(135deg, rgba(139,92,246,0.2), rgba(167,139,250,0.2));
+      border: 2px solid rgba(139,92,246,0.5);
+      border-radius: 14px;
+      padding: 18px;
+    }
+    .rag-title { color: #fff; font-size: 14px; font-weight: 600; margin-bottom: 14px; text-align: center; }
+    .rag-flow {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    .rag-step {
+      background: rgba(255,255,255,0.05);
+      padding: 12px;
+      border-radius: 12px;
+      color: #e4e4e7;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    .rag-step:last-child {
+      grid-column: span 2;
+    }
+    .use-cases {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .use-case {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+    }
+    .use-icon { font-size: 26px; margin-bottom: 8px; }
+    .use-title { color: #fff; font-size: 12px; font-weight: 600; }
+    .use-desc { color: #a1a1aa; font-size: 10px; margin-top: 4px; }
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+    }
+    .tech-tag {
+      background: rgba(167,139,250,0.15);
+      padding: 6px 12px;
+      border-radius: 12px;
+      color: #c4b5fd;
+      font-size: 11px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="header-icon">📑</div>
+      <h1>DocuMind</h1>
+      <p>Multi-Modal AI Agent for Intelligent Document Understanding</p>
+      <div class="github-badge">RAG • Vision</div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">📥 Supported Input Types</div>
+      <div class="inputs">
+        <div class="input-type">
+          <div class="input-icon">📄</div>
+          <div class="input-label">PDFs</div>
+        </div>
+        <div class="input-type">
+          <div class="input-icon">🖼️</div>
+          <div class="input-label">Images</div>
+        </div>
+        <div class="input-type">
+          <div class="input-icon">📊</div>
+          <div class="input-label">Docs</div>
+        </div>
+        <div class="input-type">
+          <div class="input-icon">📝</div>
+          <div class="input-label">Text</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">🧠 RAG + Vision Architecture</div>
+      <div class="rag-box">
+        <div class="rag-flow">
+          <div class="rag-step">📥 Upload</div>
+          <div class="rag-step">🔍 Extract</div>
+          <div class="rag-step">🧮 Embed</div>
+          <div class="rag-step">💬 Query</div>
+          <div class="rag-step">✨ Answer</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">✨ Use Cases</div>
+      <div class="use-cases">
+        <div class="use-case">
+          <div class="use-icon">❓</div>
+          <div class="use-title">Q&A</div>
+          <div class="use-desc">Ask about docs</div>
+        </div>
+        <div class="use-case">
+          <div class="use-icon">📋</div>
+          <div class="use-title">Extraction</div>
+          <div class="use-desc">Structured data</div>
+        </div>
+        <div class="use-case">
+          <div class="use-icon">📊</div>
+          <div class="use-title">Summarize</div>
+          <div class="use-desc">Concise summaries</div>
+        </div>
+        <div class="use-case">
+          <div class="use-icon">🔍</div>
+          <div class="use-title">Search</div>
+          <div class="use-desc">Semantic search</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">🛠️ Tech Stack</div>
+      <div class="tech-stack">
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">LangChain</span>
+        <span class="tech-tag">GPT-4 Vision</span>
+        <span class="tech-tag">FAISS</span>
+        <span class="tech-tag">Streamlit</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

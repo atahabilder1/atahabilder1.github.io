@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Synger</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    .container {
+      width: 1200px;
+      height: 480px;
+      background: linear-gradient(135deg, #1a0f2e 0%, #2d1f4e 50%, #4a2c7a 100%);
+      padding: 30px 40px;
+      display: flex;
+      flex-direction: column;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 25px;
+    }
+    .header-icon {
+      width: 55px;
+      height: 55px;
+      background: linear-gradient(135deg, #c084fc, #a855f7);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      flex-shrink: 0;
+    }
+    .header-text h1 { color: #fff; font-size: 28px; font-weight: bold; }
+    .header-text p { color: #d8b4fe; font-size: 14px; }
+    .badge { margin-left: auto; background: rgba(255,255,255,0.1); padding: 6px 14px; border-radius: 20px; color: #c084fc; font-size: 12px; }
+    .main { display: flex; gap: 30px; flex: 1; }
+    .left { flex: 1; }
+    .section-title { color: #c084fc; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+    .tagline { background: linear-gradient(90deg, rgba(192,132,252,0.2), rgba(168,85,247,0.2)); border: 1px solid rgba(192,132,252,0.5); border-radius: 12px; padding: 15px; text-align: center; margin-bottom: 15px; }
+    .tagline-text { color: #e9d5ff; font-size: 16px; font-style: italic; }
+    .process-flow { display: flex; justify-content: space-between; align-items: center; background: rgba(192,132,252,0.1); border: 1px solid rgba(192,132,252,0.3); border-radius: 12px; padding: 20px; }
+    .process-step { text-align: center; flex: 1; }
+    .process-icon { width: 50px; height: 50px; background: rgba(192,132,252,0.2); border: 2px solid rgba(192,132,252,0.5); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 8px; font-size: 24px; }
+    .process-label { color: #fff; font-size: 11px; font-weight: 600; }
+    .process-desc { color: #d8b4fe; font-size: 9px; margin-top: 3px; }
+    .process-arrow { color: #c084fc; font-size: 20px; flex-shrink: 0; }
+    .right { width: 350px; flex-shrink: 0; }
+    .features { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 15px; }
+    .feature { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 15px; text-align: center; }
+    .feature-icon { font-size: 24px; margin-bottom: 6px; }
+    .feature-name { color: #fff; font-size: 11px; font-weight: 500; }
+    .feature-desc { color: #d8b4fe; font-size: 9px; margin-top: 3px; }
+    .tech-row { display: flex; gap: 8px; flex-wrap: wrap; }
+    .tech-tag { background: rgba(192,132,252,0.15); padding: 6px 12px; border-radius: 12px; color: #e9d5ff; font-size: 11px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="header-icon">🎤</div>
+      <div class="header-text">
+        <h1>Synger</h1>
+        <p>Vocal Processing Tool for Pitch-Perfect Performances</p>
+      </div>
+      <div class="badge">Audio • AI</div>
+    </div>
+    <div class="main">
+      <div class="left">
+        <div class="tagline">
+          <span class="tagline-text">"Sync your voice, keep your soul"</span>
+        </div>
+        <div class="section-title">🎵 Processing Pipeline</div>
+        <div class="process-flow">
+          <div class="process-step"><div class="process-icon">🎵</div><div class="process-label">Reference</div><div class="process-desc">Target pitch</div></div>
+          <span class="process-arrow">→</span>
+          <div class="process-step"><div class="process-icon">🎤</div><div class="process-label">Voice</div><div class="process-desc">Your singing</div></div>
+          <span class="process-arrow">→</span>
+          <div class="process-step"><div class="process-icon">🧠</div><div class="process-label">AI Process</div><div class="process-desc">Deep learning</div></div>
+          <span class="process-arrow">→</span>
+          <div class="process-step"><div class="process-icon">✨</div><div class="process-label">Output</div><div class="process-desc">Perfect pitch</div></div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="section-title">✨ Features</div>
+        <div class="features">
+          <div class="feature"><div class="feature-icon">🎯</div><div class="feature-name">Pitch Detection</div><div class="feature-desc">Deep learning F0</div></div>
+          <div class="feature"><div class="feature-icon">🔊</div><div class="feature-name">Vocal Separation</div><div class="feature-desc">Isolate voice</div></div>
+          <div class="feature"><div class="feature-icon">⚡</div><div class="feature-name">Signal Processing</div><div class="feature-desc">Advanced audio</div></div>
+          <div class="feature"><div class="feature-icon">🎼</div><div class="feature-name">Auto-Tune</div><div class="feature-desc">Real-time sync</div></div>
+        </div>
+        <div class="section-title">🛠️ Tech Stack</div>
+        <div class="tech-row">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">PyTorch</span>
+          <span class="tech-tag">Librosa</span>
+          <span class="tech-tag">Audio DSP</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

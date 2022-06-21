@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Research Pilot</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #1e3a8a 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .container {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .header-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #60a5fa, #3b82f6);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      margin: 0 auto 12px;
+    }
+    .header h1 {
+      color: #fff;
+      font-size: 26px;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+    .header p {
+      color: #94a3b8;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+    .github-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.1);
+      padding: 6px 16px;
+      border-radius: 20px;
+      color: #60a5fa;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+    .section {
+      margin-bottom: 24px;
+    }
+    .section-title {
+      color: #60a5fa;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .workflow-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .workflow-step {
+      background: linear-gradient(135deg, rgba(96,165,250,0.2), rgba(59,130,246,0.3));
+      border: 1px solid rgba(96,165,250,0.5);
+      border-radius: 14px;
+      padding: 16px 12px;
+      text-align: center;
+    }
+    .workflow-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(96,165,250,0.2);
+      border: 2px solid rgba(96,165,250,0.5);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 8px;
+      font-size: 22px;
+    }
+    .workflow-label {
+      color: #fff;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .workflow-desc {
+      color: #94a3b8;
+      font-size: 10px;
+      margin-top: 3px;
+    }
+    .sources-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .source {
+      background: rgba(96,165,250,0.1);
+      border: 1px solid rgba(96,165,250,0.3);
+      border-radius: 14px;
+      padding: 16px 12px;
+      text-align: center;
+    }
+    .source-icon {
+      font-size: 26px;
+      margin-bottom: 8px;
+    }
+    .source-name {
+      color: #fff;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .source-desc {
+      color: #94a3b8;
+      font-size: 10px;
+      margin-top: 4px;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .feature {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px;
+      padding: 16px 12px;
+      text-align: center;
+    }
+    .feature-icon {
+      font-size: 26px;
+      margin-bottom: 8px;
+    }
+    .feature-name {
+      color: #fff;
+      font-size: 12px;
+      font-weight: 500;
+    }
+    .feature-desc {
+      color: #94a3b8;
+      font-size: 10px;
+      margin-top: 4px;
+    }
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .tech-tag {
+      background: rgba(96,165,250,0.15);
+      padding: 8px 14px;
+      border-radius: 12px;
+      color: #93c5fd;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="header-icon">🔬</div>
+      <h1>Research Pilot</h1>
+      <p>Intelligent AI Agent for Academic Research Workflows</p>
+      <div class="github-badge">RAG • AI Agent</div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">📚 RAG-Powered Research Pipeline</div>
+      <div class="workflow-grid">
+        <div class="workflow-step">
+          <div class="workflow-icon">🔍</div>
+          <div class="workflow-label">Search Papers</div>
+          <div class="workflow-desc">arXiv & Semantic Scholar</div>
+        </div>
+        <div class="workflow-step">
+          <div class="workflow-icon">📄</div>
+          <div class="workflow-label">Process PDFs</div>
+          <div class="workflow-desc">Extract & metadata</div>
+        </div>
+        <div class="workflow-step">
+          <div class="workflow-icon">🧮</div>
+          <div class="workflow-label">Embed & Store</div>
+          <div class="workflow-desc">Vector DB</div>
+        </div>
+        <div class="workflow-step">
+          <div class="workflow-icon">📝</div>
+          <div class="workflow-label">Generate Review</div>
+          <div class="workflow-desc">AI synthesis</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">📖 Data Sources</div>
+      <div class="sources-grid">
+        <div class="source">
+          <div class="source-icon">📚</div>
+          <div class="source-name">arXiv</div>
+          <div class="source-desc">Preprints & open access</div>
+        </div>
+        <div class="source">
+          <div class="source-icon">🎓</div>
+          <div class="source-name">Semantic Scholar</div>
+          <div class="source-desc">Academic search</div>
+        </div>
+        <div class="source">
+          <div class="source-icon">🗄️</div>
+          <div class="source-name">Vector DB</div>
+          <div class="source-desc">Semantic retrieval</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">✨ Features</div>
+      <div class="features-grid">
+        <div class="feature">
+          <div class="feature-icon">🤖</div>
+          <div class="feature-name">LangChain</div>
+          <div class="feature-desc">Agent framework</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🧠</div>
+          <div class="feature-name">OpenAI/Claude</div>
+          <div class="feature-desc">LLM backends</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">📱</div>
+          <div class="feature-name">Streamlit UI</div>
+          <div class="feature-desc">Interactive app</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">📊</div>
+          <div class="feature-name">Citations</div>
+          <div class="feature-desc">Auto-referenced</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">🛠️ Tech Stack</div>
+      <div class="tech-tags">
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">LangChain</span>
+        <span class="tech-tag">Streamlit</span>
+        <span class="tech-tag">FAISS</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

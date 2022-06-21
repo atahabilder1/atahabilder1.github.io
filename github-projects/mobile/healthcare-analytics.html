@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Healthcare Analytics</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0d2818 0%, #1a4731 50%, #22543d 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .container {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .header-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #34d399, #10b981);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      margin: 0 auto 12px;
+    }
+    .header h1 {
+      color: #fff;
+      font-size: 26px;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+    .header p {
+      color: #6ee7b7;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+    .github-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.1);
+      padding: 6px 16px;
+      border-radius: 20px;
+      color: #34d399;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+    .section {
+      margin-bottom: 24px;
+    }
+    .section-title {
+      color: #34d399;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .predictions {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .prediction {
+      padding: 16px 12px;
+      border-radius: 12px;
+      text-align: center;
+    }
+    .prediction:last-child {
+      grid-column: span 2;
+    }
+    .pred-normal { background: rgba(34,197,94,0.15); border: 2px solid rgba(34,197,94,0.5); }
+    .pred-abnormal { background: rgba(239,68,68,0.15); border: 2px solid rgba(239,68,68,0.5); }
+    .pred-inconclusive { background: rgba(251,191,36,0.15); border: 2px solid rgba(251,191,36,0.5); }
+    .pred-icon { font-size: 28px; margin-bottom: 6px; }
+    .pred-label { font-size: 13px; font-weight: 600; }
+    .pred-normal .pred-label { color: #22c55e; }
+    .pred-abnormal .pred-label { color: #ef4444; }
+    .pred-inconclusive .pred-label { color: #fbbf24; }
+    .pipeline-steps {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .pipe-step {
+      background: rgba(52,211,153,0.1);
+      border: 1px solid rgba(52,211,153,0.3);
+      border-radius: 14px;
+      padding: 16px 12px;
+      text-align: center;
+    }
+    .pipe-step:last-child {
+      grid-column: span 2;
+    }
+    .pipe-icon {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+    .pipe-num {
+      color: #34d399;
+      font-size: 10px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .pipe-label {
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .feature {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 16px 12px;
+      text-align: center;
+    }
+    .feature-icon {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+    .feature-name {
+      color: #fff;
+      font-size: 12px;
+      font-weight: 500;
+    }
+    .feature-desc {
+      color: #6ee7b7;
+      font-size: 10px;
+      margin-top: 4px;
+    }
+    .tech-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .tech-tag {
+      background: rgba(52,211,153,0.15);
+      padding: 6px 12px;
+      border-radius: 12px;
+      color: #a7f3d0;
+      font-size: 11px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="header-icon">🏥</div>
+      <h1>Healthcare Analytics</h1>
+      <p>End-to-End ML for Medical Test Outcome Prediction</p>
+      <div class="github-badge">ML • Healthcare</div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">🎯 Classification Output</div>
+      <div class="predictions">
+        <div class="prediction pred-normal"><div class="pred-icon">✅</div><div class="pred-label">Normal</div></div>
+        <div class="prediction pred-abnormal"><div class="pred-icon">⚠️</div><div class="pred-label">Abnormal</div></div>
+        <div class="prediction pred-inconclusive"><div class="pred-icon">❓</div><div class="pred-label">Inconclusive</div></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">📊 Analytics Pipeline</div>
+      <div class="pipeline-steps">
+        <div class="pipe-step">
+          <div class="pipe-icon">📁</div>
+          <div class="pipe-num">Step 1</div>
+          <div class="pipe-label">Patient Data</div>
+        </div>
+        <div class="pipe-step">
+          <div class="pipe-icon">🔍</div>
+          <div class="pipe-num">Step 2</div>
+          <div class="pipe-label">EDA</div>
+        </div>
+        <div class="pipe-step">
+          <div class="pipe-icon">🔧</div>
+          <div class="pipe-num">Step 3</div>
+          <div class="pipe-label">Feature Eng.</div>
+        </div>
+        <div class="pipe-step">
+          <div class="pipe-icon">🤖</div>
+          <div class="pipe-num">Step 4</div>
+          <div class="pipe-label">ML Model</div>
+        </div>
+        <div class="pipe-step">
+          <div class="pipe-icon">💡</div>
+          <div class="pipe-num">Step 5</div>
+          <div class="pipe-label">Insights</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">✨ Features</div>
+      <div class="features">
+        <div class="feature"><div class="feature-icon">📊</div><div class="feature-name">Seaborn Viz</div><div class="feature-desc">Data visualization</div></div>
+        <div class="feature"><div class="feature-icon">🏷️</div><div class="feature-name">Multi-Class</div><div class="feature-desc">Classification</div></div>
+        <div class="feature"><div class="feature-icon">🔬</div><div class="feature-name">Synthetic Data</div><div class="feature-desc">Generated samples</div></div>
+        <div class="feature"><div class="feature-icon">💊</div><div class="feature-name">Decision Support</div><div class="feature-desc">Clinical insights</div></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">🛠️ Tech Stack</div>
+      <div class="tech-row">
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">scikit-learn</span>
+        <span class="tech-tag">Pandas</span>
+        <span class="tech-tag">Seaborn</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

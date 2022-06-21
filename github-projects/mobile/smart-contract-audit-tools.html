@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Contract Audit Tools</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3a 50%, #2a2a5a 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .container {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .header-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #818cf8, #6366f1);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      margin: 0 auto 12px;
+    }
+    .header h1 {
+      color: #fff;
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+    .header p {
+      color: #a5b4fc;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+    .github-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.1);
+      padding: 6px 16px;
+      border-radius: 20px;
+      color: #818cf8;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+    .section {
+      margin-bottom: 24px;
+    }
+    .section-title {
+      color: #818cf8;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    .category {
+      background: rgba(129,140,248,0.1);
+      border: 1px solid rgba(129,140,248,0.3);
+      border-radius: 14px;
+      padding: 14px 10px;
+      text-align: center;
+    }
+    .cat-icon {
+      font-size: 24px;
+      margin-bottom: 6px;
+    }
+    .cat-name {
+      color: #818cf8;
+      font-size: 11px;
+      font-weight: 600;
+    }
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .tool {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px;
+      padding: 16px 12px;
+      text-align: center;
+    }
+    .tool-name {
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .tool-type {
+      color: #a5b4fc;
+      font-size: 10px;
+      margin-top: 4px;
+    }
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .metric {
+      background: rgba(99,102,241,0.1);
+      border: 1px solid rgba(99,102,241,0.3);
+      border-radius: 14px;
+      padding: 16px 12px;
+      text-align: center;
+    }
+    .metric-icon {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+    .metric-name {
+      color: #fff;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .metric-desc {
+      color: #a5b4fc;
+      font-size: 10px;
+      margin-top: 4px;
+    }
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .tech-tag {
+      background: rgba(129,140,248,0.15);
+      padding: 8px 14px;
+      border-radius: 12px;
+      color: #c7d2fe;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="header-icon">🔬</div>
+      <h1>Audit Tools Evaluation</h1>
+      <p>Benchmark Suite for Smart Contract Vulnerability Detection</p>
+      <div class="github-badge">Research • Security</div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">📊 Tool Categories</div>
+      <div class="categories-grid">
+        <div class="category">
+          <div class="cat-icon">📊</div>
+          <div class="cat-name">Static Analysis</div>
+        </div>
+        <div class="category">
+          <div class="cat-icon">🔮</div>
+          <div class="cat-name">Symbolic Exec</div>
+        </div>
+        <div class="category">
+          <div class="cat-icon">🎲</div>
+          <div class="cat-name">Fuzzing</div>
+        </div>
+        <div class="category">
+          <div class="cat-icon">✅</div>
+          <div class="cat-name">Formal Verify</div>
+        </div>
+        <div class="category">
+          <div class="cat-icon">🧠</div>
+          <div class="cat-name">ML/DL</div>
+        </div>
+        <div class="category">
+          <div class="cat-icon">🤖</div>
+          <div class="cat-name">LLM Agents</div>
+        </div>
+        <div class="category">
+          <div class="cat-icon">🔗</div>
+          <div class="cat-name">Hybrid</div>
+        </div>
+        <div class="category">
+          <div class="cat-icon">📝</div>
+          <div class="cat-name">Research</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">🛠️ Featured Tools</div>
+      <div class="tools-grid">
+        <div class="tool">
+          <div class="tool-name">Slither</div>
+          <div class="tool-type">Static Analysis</div>
+        </div>
+        <div class="tool">
+          <div class="tool-name">Mythril</div>
+          <div class="tool-type">Symbolic Execution</div>
+        </div>
+        <div class="tool">
+          <div class="tool-name">Echidna</div>
+          <div class="tool-type">Fuzzing</div>
+        </div>
+        <div class="tool">
+          <div class="tool-name">GPTScan</div>
+          <div class="tool-type">LLM-based</div>
+        </div>
+        <div class="tool">
+          <div class="tool-name">Certora</div>
+          <div class="tool-type">Formal Verify</div>
+        </div>
+        <div class="tool">
+          <div class="tool-name">+ More</div>
+          <div class="tool-type">7 Categories</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">📈 Evaluation Metrics</div>
+      <div class="metrics-grid">
+        <div class="metric">
+          <div class="metric-icon">🎯</div>
+          <div class="metric-name">Accuracy</div>
+          <div class="metric-desc">Detection precision</div>
+        </div>
+        <div class="metric">
+          <div class="metric-icon">📈</div>
+          <div class="metric-name">Coverage</div>
+          <div class="metric-desc">Vuln types</div>
+        </div>
+        <div class="metric">
+          <div class="metric-icon">⚡</div>
+          <div class="metric-name">Scalability</div>
+          <div class="metric-desc">Large contracts</div>
+        </div>
+        <div class="metric">
+          <div class="metric-icon">⏱️</div>
+          <div class="metric-name">Performance</div>
+          <div class="metric-desc">Analysis time</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">🏷️ Topics</div>
+      <div class="tech-tags">
+        <span class="tech-tag">Solidity</span>
+        <span class="tech-tag">Ethereum</span>
+        <span class="tech-tag">Security</span>
+        <span class="tech-tag">Benchmark</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

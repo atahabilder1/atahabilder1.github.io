@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FactCheckAI</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .container {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .header-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      margin: 0 auto 12px;
+    }
+    .header h1 {
+      color: #fff;
+      font-size: 26px;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+    .header p {
+      color: #94a3b8;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+    .github-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.1);
+      padding: 6px 16px;
+      border-radius: 20px;
+      color: #38bdf8;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+    .section {
+      margin-bottom: 24px;
+    }
+    .section-title {
+      color: #38bdf8;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .classification {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .class-box {
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+    }
+    .class-real {
+      background: rgba(34,197,94,0.15);
+      border: 2px solid rgba(34,197,94,0.5);
+    }
+    .class-fake {
+      background: rgba(239,68,68,0.15);
+      border: 2px solid rgba(239,68,68,0.5);
+    }
+    .class-icon {
+      font-size: 32px;
+      margin-bottom: 6px;
+    }
+    .class-label {
+      font-size: 16px;
+      font-weight: 600;
+    }
+    .class-real .class-label {
+      color: #22c55e;
+    }
+    .class-fake .class-label {
+      color: #ef4444;
+    }
+    .pipeline-steps {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .pipe-step {
+      background: rgba(56,189,248,0.1);
+      border: 1px solid rgba(56,189,248,0.3);
+      border-radius: 14px;
+      padding: 16px 12px;
+      text-align: center;
+    }
+    .pipe-step.full-width {
+      grid-column: span 2;
+    }
+    .pipe-icon {
+      width: 45px;
+      height: 45px;
+      background: rgba(56,189,248,0.2);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 8px;
+      font-size: 20px;
+    }
+    .pipe-label {
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .models-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .model-group {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 15px;
+    }
+    .model-title {
+      color: #38bdf8;
+      font-size: 11px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .model-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .model-tag {
+      background: rgba(255,255,255,0.05);
+      padding: 4px 10px;
+      border-radius: 12px;
+      color: #d1d5db;
+      font-size: 9px;
+    }
+    .tech-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .tech-tag {
+      background: rgba(56,189,248,0.15);
+      padding: 6px 12px;
+      border-radius: 12px;
+      color: #7dd3fc;
+      font-size: 11px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="header-icon">🔍</div>
+      <h1>FactCheckAI</h1>
+      <p>Automated Fake News Detection with NLP & Machine Learning</p>
+      <div class="github-badge">NLP • BERT</div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">🎯 Classification Output</div>
+      <div class="classification">
+        <div class="class-box class-real">
+          <div class="class-icon">✅</div>
+          <div class="class-label">REAL</div>
+        </div>
+        <div class="class-box class-fake">
+          <div class="class-icon">❌</div>
+          <div class="class-label">FAKE</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">📊 NLP Pipeline</div>
+      <div class="pipeline-steps">
+        <div class="pipe-step">
+          <div class="pipe-icon">📰</div>
+          <div class="pipe-label">Article</div>
+        </div>
+        <div class="pipe-step">
+          <div class="pipe-icon">🔤</div>
+          <div class="pipe-label">Tokenize</div>
+        </div>
+        <div class="pipe-step">
+          <div class="pipe-icon">📊</div>
+          <div class="pipe-label">Embed</div>
+        </div>
+        <div class="pipe-step">
+          <div class="pipe-icon">🤖</div>
+          <div class="pipe-label">Classify</div>
+        </div>
+        <div class="pipe-step full-width">
+          <div class="pipe-icon">🎯</div>
+          <div class="pipe-label">Verdict</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">🧠 Models Used</div>
+      <div class="models-grid">
+        <div class="model-group">
+          <div class="model-title">🔧 Traditional ML</div>
+          <div class="model-tags">
+            <span class="model-tag">Logistic Reg</span>
+            <span class="model-tag">Random Forest</span>
+            <span class="model-tag">SVM</span>
+          </div>
+        </div>
+        <div class="model-group">
+          <div class="model-title">🧠 Transformers</div>
+          <div class="model-tags">
+            <span class="model-tag">BERT</span>
+            <span class="model-tag">RoBERTa</span>
+            <span class="model-tag">Fine-tuned</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">🛠️ Tech Stack</div>
+      <div class="tech-row">
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">BERT</span>
+        <span class="tech-tag">PyTorch</span>
+        <span class="tech-tag">scikit-learn</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

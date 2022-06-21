@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FlashX</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0a1628 0%, #1a365d 50%, #2c5282 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .container {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .header-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #63b3ed, #4299e1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      margin: 0 auto 12px;
+    }
+    .header h1 {
+      color: #fff;
+      font-size: 26px;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+    .header p {
+      color: #a0aec0;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+    .github-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.1);
+      padding: 6px 16px;
+      border-radius: 20px;
+      color: #63b3ed;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+    .section {
+      margin-bottom: 24px;
+    }
+    .section-title {
+      color: #63b3ed;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .banner {
+      background: linear-gradient(90deg, rgba(99,179,237,0.2), rgba(66,153,225,0.2));
+      border: 2px solid rgba(99,179,237,0.5);
+      border-radius: 12px;
+      padding: 15px;
+      text-align: center;
+    }
+    .banner-title {
+      color: #63b3ed;
+      font-size: 15px;
+      font-weight: 700;
+    }
+    .banner-desc {
+      color: #a0aec0;
+      font-size: 11px;
+      margin-top: 6px;
+      line-height: 1.4;
+    }
+    .flow-steps {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .flow-step {
+      background: rgba(255,255,255,0.05);
+      border-radius: 14px;
+      padding: 16px 12px;
+      text-align: center;
+    }
+    .flow-num {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #2b6cb0, #3182ce);
+      border: 3px solid #63b3ed;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 10px;
+      font-size: 22px;
+    }
+    .flow-title {
+      color: #fff;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .flow-desc {
+      color: #a0aec0;
+      font-size: 10px;
+      margin-top: 4px;
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    .feature {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 15px;
+      text-align: center;
+    }
+    .feature-icon {
+      font-size: 26px;
+      margin-bottom: 8px;
+    }
+    .feature-text {
+      color: #fff;
+      font-size: 12px;
+      font-weight: 500;
+    }
+    .feature-sub {
+      color: #a0aec0;
+      font-size: 10px;
+      margin-top: 4px;
+    }
+    .info-box {
+      background: rgba(99,179,237,0.1);
+      border: 1px solid rgba(99,179,237,0.3);
+      border-radius: 12px;
+      padding: 15px;
+      text-align: center;
+    }
+    .info-value {
+      color: #63b3ed;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    .info-label {
+      color: #a0aec0;
+      font-size: 11px;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="header-icon">⚡</div>
+      <h1>FlashX</h1>
+      <p>Flash Loan Simulation on Aave V3</p>
+      <div class="github-badge">Aave • DeFi</div>
+    </div>
+
+    <div class="section">
+      <div class="banner">
+        <div class="banner-title">⚡ Single Transaction Magic</div>
+        <div class="banner-desc">Borrow millions, execute arbitrage, repay with fee — all in one atomic transaction</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">🔄 Flash Loan Flow</div>
+      <div class="flow-steps">
+        <div class="flow-step">
+          <div class="flow-num">1️⃣</div>
+          <div class="flow-title">Request Loan</div>
+          <div class="flow-desc">Borrow from Aave</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">2️⃣</div>
+          <div class="flow-title">Execute Trade</div>
+          <div class="flow-desc">Arbitrage ops</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">3️⃣</div>
+          <div class="flow-title">Repay + Fee</div>
+          <div class="flow-desc">Return + 0.09%</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">4️⃣</div>
+          <div class="flow-title">Keep Profit</div>
+          <div class="flow-desc">Net gains yours</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">🛠️ Tech Stack</div>
+      <div class="features">
+        <div class="feature">
+          <div class="feature-icon">🏦</div>
+          <div class="feature-text">Aave V3</div>
+          <div class="feature-sub">Latest protocol</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🔗</div>
+          <div class="feature-text">Chainlink</div>
+          <div class="feature-sub">Price oracles</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">⚙️</div>
+          <div class="feature-text">Hardhat</div>
+          <div class="feature-sub">Dev framework</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🌐</div>
+          <div class="feature-text">Next.js</div>
+          <div class="feature-sub">Frontend</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="info-box">
+        <div class="info-value">0.09%</div>
+        <div class="info-label">Flash Loan Fee</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DepegScope</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .container {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .header-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #f59e0b, #ef4444);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      margin: 0 auto 12px;
+    }
+    .header h1 {
+      color: #fff;
+      font-size: 26px;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+    .header p {
+      color: #94a3b8;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+    .github-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.1);
+      padding: 6px 16px;
+      border-radius: 20px;
+      color: #f59e0b;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+    .section {
+      margin-bottom: 24px;
+    }
+    .section-title {
+      color: #f59e0b;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .warning {
+      background: linear-gradient(90deg, rgba(239,68,68,0.2), rgba(245,158,11,0.2));
+      border: 1px solid rgba(239,68,68,0.4);
+      border-radius: 12px;
+      padding: 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .warning-icon { font-size: 22px; }
+    .warning-text { color: #fbbf24; font-size: 12px; line-height: 1.4; }
+    .analysis-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .analysis-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 16px 12px;
+      text-align: center;
+    }
+    .analysis-icon { font-size: 26px; margin-bottom: 8px; }
+    .analysis-title { color: #fff; font-size: 12px; font-weight: 600; }
+    .analysis-desc { color: #94a3b8; font-size: 10px; margin-top: 4px; }
+    .cases-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .case {
+      background: rgba(239,68,68,0.1);
+      border: 1px solid rgba(239,68,68,0.3);
+      border-radius: 12px;
+      padding: 14px;
+      text-align: center;
+    }
+    .case:last-child {
+      grid-column: span 2;
+    }
+    .case-name { color: #ef4444; font-size: 12px; font-weight: 600; }
+    .case-desc { color: #94a3b8; font-size: 10px; margin-top: 4px; }
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .metric {
+      background: rgba(245,158,11,0.1);
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+    }
+    .metric-value { color: #f59e0b; font-size: 20px; font-weight: bold; }
+    .metric-label { color: #94a3b8; font-size: 10px; margin-top: 4px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="header-icon">🔍</div>
+      <h1>DepegScope</h1>
+      <p>Stablecoin Depeg Contagion Analysis Framework</p>
+      <div class="github-badge">DeFi • Risk Analysis</div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">⚠️ Warning System</div>
+      <div class="warning">
+        <span class="warning-icon">⚠️</span>
+        <span class="warning-text">Early Warning System: Detect systemic risk before cascade failures propagate</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">📊 Analysis Features</div>
+      <div class="analysis-grid">
+        <div class="analysis-card">
+          <div class="analysis-icon">🗺️</div>
+          <div class="analysis-title">Dependency Mapping</div>
+          <div class="analysis-desc">DeFi protocol interconnections</div>
+        </div>
+        <div class="analysis-card">
+          <div class="analysis-icon">💥</div>
+          <div class="analysis-title">Cascade Simulation</div>
+          <div class="analysis-desc">Cross-protocol liquidation</div>
+        </div>
+        <div class="analysis-card">
+          <div class="analysis-icon">📊</div>
+          <div class="analysis-title">Blast Radius</div>
+          <div class="analysis-desc">Impact zone quantification</div>
+        </div>
+        <div class="analysis-card">
+          <div class="analysis-icon">🔔</div>
+          <div class="analysis-title">Early Warning</div>
+          <div class="analysis-desc">Leading indicators</div>
+        </div>
+        <div class="analysis-card">
+          <div class="analysis-icon">📈</div>
+          <div class="analysis-title">Historical Analysis</div>
+          <div class="analysis-desc">Past depeg modeling</div>
+        </div>
+        <div class="analysis-card">
+          <div class="analysis-icon">🤖</div>
+          <div class="analysis-title">Agent Modeling</div>
+          <div class="analysis-desc">Market behavior simulation</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">💀 Cases Analyzed</div>
+      <div class="cases-grid">
+        <div class="case">
+          <div class="case-name">Terra/UST</div>
+          <div class="case-desc">$40B collapse</div>
+        </div>
+        <div class="case">
+          <div class="case-name">USDC/SVB</div>
+          <div class="case-desc">Banking crisis</div>
+        </div>
+        <div class="case">
+          <div class="case-name">2025 Events</div>
+          <div class="case-desc">Multi-protocol</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">📈 Metrics</div>
+      <div class="metrics">
+        <div class="metric">
+          <div class="metric-value">50+</div>
+          <div class="metric-label">Protocols Tracked</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">$100B+</div>
+          <div class="metric-label">TVL Monitored</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">Real-time</div>
+          <div class="metric-label">Risk Updates</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">Python</div>
+          <div class="metric-label">Built With</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

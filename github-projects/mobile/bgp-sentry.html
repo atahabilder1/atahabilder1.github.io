@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BGP-Sentry</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0d1117 0%, #161b22 50%, #21262d 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .container {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .header-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #58a6ff, #1f6feb);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      margin: 0 auto 12px;
+    }
+    .header h1 {
+      color: #fff;
+      font-size: 26px;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+    .header p {
+      color: #8b949e;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+    .github-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.1);
+      padding: 6px 16px;
+      border-radius: 20px;
+      color: #58a6ff;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+    .section {
+      margin-bottom: 24px;
+    }
+    .section-title {
+      color: #58a6ff;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .network-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .as-node {
+      background: linear-gradient(135deg, #238636, #2ea043);
+      border-radius: 14px;
+      padding: 16px 12px;
+      text-align: center;
+    }
+    .blockchain-node {
+      background: linear-gradient(135deg, #58a6ff, #1f6feb);
+      border-radius: 14px;
+      padding: 16px 12px;
+      text-align: center;
+      grid-column: span 2;
+    }
+    .node-icon {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+    .node-label {
+      color: #fff;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .feature-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px;
+      padding: 16px 12px;
+      text-align: center;
+    }
+    .feature-card.full-width {
+      grid-column: span 2;
+    }
+    .feature-icon {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+    .feature-title {
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .feature-desc {
+      color: #8b949e;
+      font-size: 11px;
+      margin-top: 4px;
+    }
+    .detects {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .detect {
+      background: rgba(218,54,51,0.1);
+      border: 1px solid rgba(218,54,51,0.3);
+      border-radius: 14px;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .detect-icon {
+      font-size: 28px;
+    }
+    .detect-text {
+      color: #fff;
+      font-size: 13px;
+      font-weight: 500;
+    }
+    .detect-sub {
+      color: #8b949e;
+      font-size: 11px;
+      margin-top: 2px;
+    }
+    .tech-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .tech-tag {
+      background: rgba(88,166,255,0.15);
+      padding: 6px 12px;
+      border-radius: 12px;
+      color: #58a6ff;
+      font-size: 11px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="header-icon">🛡️</div>
+      <h1>BGP-Sentry</h1>
+      <p>Distributed Blockchain-Based Security for BGP Networks</p>
+      <div class="github-badge">Blockchain • Network</div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">🌐 P2P Consensus Architecture</div>
+      <div class="network-grid">
+        <div class="as-node">
+          <div class="node-icon">🌍</div>
+          <div class="node-label">AS 1</div>
+        </div>
+        <div class="as-node">
+          <div class="node-icon">🌍</div>
+          <div class="node-label">AS 2</div>
+        </div>
+        <div class="blockchain-node">
+          <div class="node-icon">⛓️</div>
+          <div class="node-label">Blockchain Consensus</div>
+        </div>
+        <div class="as-node">
+          <div class="node-icon">🌍</div>
+          <div class="node-label">AS 3</div>
+        </div>
+        <div class="as-node">
+          <div class="node-icon">🌍</div>
+          <div class="node-label">AS 4</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">✨ Key Features</div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🔐</div>
+          <div class="feature-title">RPKI Integration</div>
+          <div class="feature-desc">Route validation</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">👥</div>
+          <div class="feature-title">Proof-of-Population</div>
+          <div class="feature-desc">Novel consensus</div>
+        </div>
+        <div class="feature-card full-width">
+          <div class="feature-icon">✍️</div>
+          <div class="feature-title">Crypto Signatures</div>
+          <div class="feature-desc">TX integrity</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">🚨 Threat Detection</div>
+      <div class="detects">
+        <div class="detect">
+          <span class="detect-icon">🚨</span>
+          <div>
+            <div class="detect-text">BGP Hijacking Detection</div>
+            <div class="detect-sub">Identifies malicious route announcements</div>
+          </div>
+        </div>
+        <div class="detect">
+          <span class="detect-icon">🔓</span>
+          <div>
+            <div class="detect-text">Route Leak Detection</div>
+            <div class="detect-sub">Catches accidental propagation</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">🛠️ Tech Stack</div>
+      <div class="tech-row">
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">Blockchain</span>
+        <span class="tech-tag">RPKI</span>
+        <span class="tech-tag">P2P Network</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

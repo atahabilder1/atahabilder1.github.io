@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Recommendation</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #1a0a0a 0%, #2d0a1a 50%, #4a0e2c 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .container {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .header-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #f472b6, #ec4899);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      margin: 0 auto 12px;
+    }
+    .header h1 {
+      color: #fff;
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+    .header p {
+      color: #f9a8d4;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+    .github-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.1);
+      padding: 6px 16px;
+      border-radius: 20px;
+      color: #f472b6;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+    .section {
+      margin-bottom: 24px;
+    }
+    .section-title {
+      color: #f472b6;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .stat {
+      background: linear-gradient(90deg, rgba(236,72,153,0.2), rgba(244,114,182,0.2));
+      border: 1px solid rgba(236,72,153,0.5);
+      border-radius: 14px;
+      padding: 16px 12px;
+      text-align: center;
+    }
+    .stat.highlight {
+      border-color: #22c55e;
+      background: rgba(34,197,94,0.15);
+    }
+    .stat-value {
+      color: #f472b6;
+      font-size: 22px;
+      font-weight: bold;
+    }
+    .stat.highlight .stat-value {
+      color: #22c55e;
+    }
+    .stat-label {
+      color: #f9a8d4;
+      font-size: 10px;
+      margin-top: 4px;
+    }
+    .approaches-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .approach {
+      background: rgba(244,114,182,0.1);
+      border: 1px solid rgba(244,114,182,0.3);
+      border-radius: 14px;
+      padding: 16px 12px;
+    }
+    .approach-title {
+      color: #f472b6;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .approach-desc {
+      color: #f9a8d4;
+      font-size: 10px;
+      line-height: 1.4;
+    }
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .metric {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px;
+      padding: 16px 12px;
+      text-align: center;
+    }
+    .metric-value {
+      color: #f472b6;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .metric-label {
+      color: #f9a8d4;
+      font-size: 10px;
+      margin-top: 4px;
+    }
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .tech-tag {
+      background: rgba(244,114,182,0.15);
+      padding: 8px 14px;
+      border-radius: 12px;
+      color: #f9a8d4;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="header-icon">🎬</div>
+      <h1>Movie Recommendation</h1>
+      <p>Neural Collaborative Filtering + Content-Based Hybrid</p>
+      <div class="github-badge">PyTorch • ML</div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">📊 Performance</div>
+      <div class="stats-grid">
+        <div class="stat">
+          <div class="stat-value">0.6479</div>
+          <div class="stat-label">RMSE Score</div>
+        </div>
+        <div class="stat highlight">
+          <div class="stat-value">24%</div>
+          <div class="stat-label">Better than Netflix</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">65K</div>
+          <div class="stat-label">Movies</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">🧠 Recommendation Approaches</div>
+      <div class="approaches-grid">
+        <div class="approach">
+          <div class="approach-title">🧠 Neural Collaborative</div>
+          <div class="approach-desc">Deep learning model learns user-item interactions through neural networks</div>
+        </div>
+        <div class="approach">
+          <div class="approach-title">📊 Content-Based</div>
+          <div class="approach-desc">Analyzes movie features to find similar content based on preferences</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">📈 Model Metrics</div>
+      <div class="metrics-grid">
+        <div class="metric">
+          <div class="metric-value">NCF</div>
+          <div class="metric-label">Neural Network</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">Hybrid</div>
+          <div class="metric-label">Ensemble Model</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">GPU</div>
+          <div class="metric-label">Accelerated</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">Real-time</div>
+          <div class="metric-label">Inference</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">🛠️ Tech Stack</div>
+      <div class="tech-tags">
+        <span class="tech-tag">PyTorch</span>
+        <span class="tech-tag">scikit-learn</span>
+        <span class="tech-tag">Pandas</span>
+        <span class="tech-tag">Python</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

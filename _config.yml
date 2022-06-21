@@ -1,0 +1,25 @@
+title: Anik Tahabilder
+description: PhD student at Wayne State University - Blockchain, ML, Data Science
+url: "https://atahabilder1.github.io"
+baseurl: ""
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+
+# Blog settings
+permalink: /blog/:year/:month/:day/:title/
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /blog/:year/:month/:day/:title/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Synger</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #1a0f2e 0%, #2d1f4e 50%, #4a2c7a 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .container {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .header-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #c084fc, #a855f7);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      margin: 0 auto 12px;
+    }
+    .header h1 {
+      color: #fff;
+      font-size: 26px;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+    .header p {
+      color: #d8b4fe;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+    .github-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.1);
+      padding: 6px 16px;
+      border-radius: 20px;
+      color: #c084fc;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+    .section {
+      margin-bottom: 24px;
+    }
+    .section-title {
+      color: #c084fc;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .tagline {
+      background: linear-gradient(90deg, rgba(192,132,252,0.2), rgba(168,85,247,0.2));
+      border: 1px solid rgba(192,132,252,0.5);
+      border-radius: 14px;
+      padding: 16px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .tagline-text {
+      color: #e9d5ff;
+      font-size: 15px;
+      font-style: italic;
+    }
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .process-step {
+      background: rgba(192,132,252,0.1);
+      border: 1px solid rgba(192,132,252,0.3);
+      border-radius: 14px;
+      padding: 16px 12px;
+      text-align: center;
+    }
+    .process-icon {
+      width: 44px;
+      height: 44px;
+      background: rgba(192,132,252,0.2);
+      border: 2px solid rgba(192,132,252,0.5);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 8px;
+      font-size: 22px;
+    }
+    .process-label {
+      color: #fff;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .process-desc {
+      color: #d8b4fe;
+      font-size: 10px;
+      margin-top: 3px;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .feature {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px;
+      padding: 16px 12px;
+      text-align: center;
+    }
+    .feature-icon {
+      font-size: 26px;
+      margin-bottom: 8px;
+    }
+    .feature-name {
+      color: #fff;
+      font-size: 12px;
+      font-weight: 500;
+    }
+    .feature-desc {
+      color: #d8b4fe;
+      font-size: 10px;
+      margin-top: 4px;
+    }
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .tech-tag {
+      background: rgba(192,132,252,0.15);
+      padding: 8px 14px;
+      border-radius: 12px;
+      color: #e9d5ff;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="header-icon">🎤</div>
+      <h1>Synger</h1>
+      <p>Vocal Processing Tool for Pitch-Perfect Performances</p>
+      <div class="github-badge">Audio • AI</div>
+    </div>
+
+    <div class="section">
+      <div class="tagline">
+        <span class="tagline-text">"Sync your voice, keep your soul"</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">🎵 Processing Pipeline</div>
+      <div class="process-grid">
+        <div class="process-step">
+          <div class="process-icon">🎵</div>
+          <div class="process-label">Reference</div>
+          <div class="process-desc">Target pitch</div>
+        </div>
+        <div class="process-step">
+          <div class="process-icon">🎤</div>
+          <div class="process-label">Voice</div>
+          <div class="process-desc">Your singing</div>
+        </div>
+        <div class="process-step">
+          <div class="process-icon">🧠</div>
+          <div class="process-label">AI Process</div>
+          <div class="process-desc">Deep learning</div>
+        </div>
+        <div class="process-step">
+          <div class="process-icon">✨</div>
+          <div class="process-label">Output</div>
+          <div class="process-desc">Perfect pitch</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">✨ Features</div>
+      <div class="features-grid">
+        <div class="feature">
+          <div class="feature-icon">🎯</div>
+          <div class="feature-name">Pitch Detection</div>
+          <div class="feature-desc">Deep learning F0</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🔊</div>
+          <div class="feature-name">Vocal Separation</div>
+          <div class="feature-desc">Isolate voice</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">⚡</div>
+          <div class="feature-name">Signal Processing</div>
+          <div class="feature-desc">Advanced audio</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🎼</div>
+          <div class="feature-name">Auto-Tune</div>
+          <div class="feature-desc">Real-time sync</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">🛠️ Tech Stack</div>
+      <div class="tech-tags">
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">PyTorch</span>
+        <span class="tech-tag">Librosa</span>
+        <span class="tech-tag">Audio DSP</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
