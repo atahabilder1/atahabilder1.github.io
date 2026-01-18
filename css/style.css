@@ -1464,26 +1464,31 @@ body.dark-mode .visual-info {
 }
 
 @media (max-width: 576px) {
-    /* Make project cards full-width on mobile */
+    /* Center project cards on mobile */
     #github-projects.visual-projects {
-        margin-left: -16px;
-        margin-right: -16px;
         gap: 16px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
     }
 
     #github-projects .visual-card {
-        border-radius: 0;
-        border-left: none;
-        border-right: none;
+        border-radius: 12px;
+        width: 100%;
+        max-width: 400px;
     }
 
     .visual-preview {
-        height: 170px;
+        height: 165px;
         overflow: hidden;
+        position: relative;
     }
 
     .visual-preview iframe {
-        transform: scale(0.345);
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%) scale(0.34);
+        transform-origin: top center;
     }
 
     .visual-info {
