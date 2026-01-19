@@ -585,6 +585,10 @@ img {
 
 .about-text {
     text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    word-break: break-word;
 }
 
 .about-wrapper a {
@@ -848,6 +852,11 @@ body.dark-mode .edu-card {
     font-size: 0.9rem;
     margin-top: 8px;
     line-height: 1.6;
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    word-break: break-word;
 }
 
 .timeline-tags {
@@ -952,6 +961,10 @@ body.dark-mode .timeline-tags span {
     margin-bottom: 12px;
     line-height: 1.7;
     text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    word-break: break-word;
 }
 
 .research-tags {
@@ -1893,6 +1906,11 @@ body.dark-mode .modal-footer {
     font-size: 0.9rem;
     color: var(--text-light);
     line-height: 1.7;
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    word-break: break-word;
 }
 
 body.dark-mode .teaching-card {
