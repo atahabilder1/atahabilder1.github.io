@@ -360,7 +360,10 @@
             <h2 class="section-title">Research</h2>
             <div class="research-grid">
                 <div class="research-card">
-                    <h3><i class="fas fa-shield-alt research-title-icon"></i> ActorAI - Smart Contract Auditing Framework</h3>
+                    <div class="research-header">
+                        <h3><i class="fas fa-shield-alt research-title-icon"></i> ActorAI - Smart Contract Audit</h3>
+                        <a href="https://github.com/atahabilder1/Actor" target="_blank" class="research-github"><i class="fab fa-github"></i> Github</a>
+                    </div>
                     <p class="research-lab">Big Data Research Lab | Sep 2021 - Present</p>
                     <p>
                         Leading an AI-powered smart contract auditing framework analyzing Solidity codebases
@@ -373,15 +376,28 @@
                         classification. Utilized static analysis (ASTs, CFGs) with Tree-sitter and Slither for
                         semantic feature engineering.
                     </p>
-                    <div class="research-tags">
-                        <span>PyTorch</span>
-                        <span>Transformers</span>
-                        <span>Slither</span>
-                        <span>Solidity</span>
+                    <div class="research-tags-container">
+                        <div class="research-tags-scroll">
+                            <span>PyTorch</span>
+                            <span>Transformers</span>
+                            <span>Slither</span>
+                            <span>Solidity</span>
+                            <span>Tree-sitter</span>
+                            <span>Deep Learning</span>
+                            <span>PyTorch</span>
+                            <span>Transformers</span>
+                            <span>Slither</span>
+                            <span>Solidity</span>
+                            <span>Tree-sitter</span>
+                            <span>Deep Learning</span>
+                        </div>
                     </div>
                 </div>
                 <div class="research-card">
-                    <h3><i class="fas fa-network-wired research-title-icon"></i> BGPSentry - Blockchain-based BGP Security</h3>
+                    <div class="research-header">
+                        <h3><i class="fas fa-network-wired research-title-icon"></i> BGPSentry - Blockchain for Routing</h3>
+                        <a href="https://github.com/atahabilder1/BGP-Sentry" target="_blank" class="research-github"><i class="fab fa-github"></i> Github</a>
+                    </div>
                     <p class="research-lab">NIDS Lab | Sep 2024 - Present</p>
                     <p>
                         Architecting a permissioned blockchain system for securing internet routing infrastructure.
@@ -391,11 +407,21 @@
                         Developed cryptographic proof-of-announcement protocols and token-based staking mechanisms.
                         Built AS-level network graphs and anomaly detectors using NetworkX and scikit-learn.
                     </p>
-                    <div class="research-tags">
-                        <span>Blockchain</span>
-                        <span>NetworkX</span>
-                        <span>Cryptography</span>
-                        <span>Python</span>
+                    <div class="research-tags-container">
+                        <div class="research-tags-scroll">
+                            <span>Blockchain</span>
+                            <span>NetworkX</span>
+                            <span>Cryptography</span>
+                            <span>Python</span>
+                            <span>Consensus</span>
+                            <span>scikit-learn</span>
+                            <span>Blockchain</span>
+                            <span>NetworkX</span>
+                            <span>Cryptography</span>
+                            <span>Python</span>
+                            <span>Consensus</span>
+                            <span>scikit-learn</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -407,6 +433,13 @@
         <div class="container">
             <h2 class="section-title">GitHub Projects</h2>
             <p class="section-subtitle">Visual overviews of my public repositories. Click any card to view the code on GitHub.</p>
+
+            <!-- Search Input -->
+            <div class="project-search">
+                <i class="fas fa-search"></i>
+                <input type="text" id="project-search-input" placeholder="Search by keyword (e.g., PyTorch, Solidity, DeFi...)" autocomplete="off">
+                <div id="search-suggestions" class="search-suggestions"></div>
+            </div>
 
             <!-- Horizontal Filters -->
             <div class="project-filters">
@@ -684,7 +717,7 @@
                 <h4>Connect with me</h4>
                 <div class="social-links-row">
                     <a href="https://github.com/atahabilder1" target="_blank" class="social-link">
-                        <i class="fab fa-github"></i> GitHub
+                        <i class="fab fa-github"></i> Github
                     </a>
                     <a href="https://www.linkedin.com/in/tahabilder/" target="_blank" class="social-link">
                         <i class="fab fa-linkedin"></i> LinkedIn
@@ -973,10 +1006,27 @@
 
         let visibleProjectCount = 6;
         let currentFilter = 'all';
+        let searchQuery = '';
 
         function getFilteredProjects() {
-            if (currentFilter === 'all') return visualProjects;
-            return visualProjects.filter(p => p.category === currentFilter);
+            let filtered = visualProjects;
+
+            // Filter by category
+            if (currentFilter !== 'all') {
+                filtered = filtered.filter(p => p.category === currentFilter);
+            }
+
+            // Filter by search query
+            if (searchQuery.trim()) {
+                const query = searchQuery.toLowerCase().trim();
+                filtered = filtered.filter(p =>
+                    p.title.toLowerCase().includes(query) ||
+                    p.desc.toLowerCase().includes(query) ||
+                    p.tags.some(tag => tag.toLowerCase().includes(query))
+                );
+            }
+
+            return filtered;
         }
 
         function renderVisualProjects() {
@@ -999,7 +1049,7 @@
                 const tagsClass = p.tags.length <= 2 ? 'visual-tags few-tags' : 'visual-tags';
                 // Duplicate tags for seamless carousel loop when more than 2 tags
                 const tagsHtml = p.tags.map(t => `<span class="visual-tag">${t}</span>`).join('');
-                const carouselTags = p.tags.length > 2 ? tagsHtml + tagsHtml : tagsHtml;
+                const carouselTags = p.tags.length > 2 ? tagsHtml + tagsHtml + tagsHtml : tagsHtml;
                 return `
                 <div class="project-card visual-card" onclick="openProjectModal('${p.id}', '${p.title}', '${p.url}')">
                     <div class="visual-preview">
@@ -1011,7 +1061,7 @@
                             <span class="section-pipe">|</span>
                             <div class="${tagsClass}"><div class="visual-tags-inner">${carouselTags}</div></div>
                             <span class="section-pipe">|</span>
-                            <span class="visual-github"><i class="fab fa-github"></i> View on GitHub</span>
+                            <span class="visual-github"><i class="fab fa-github"></i> Github</span>
                         </div>
                         <p class="visual-desc">${p.desc}</p>
                     </div>
@@ -1060,6 +1110,98 @@
                 renderVisualProjects();
             });
         });
+
+        // Generate all unique keywords from projects
+        const allKeywords = [...new Set(visualProjects.flatMap(p => [
+            ...p.tags,
+            ...p.title.split(' ').filter(w => w.length > 2),
+            p.category.replace('-', ' ')
+        ]))].sort();
+
+        // Search input handler with autocomplete
+        const searchInput = document.getElementById('project-search-input');
+        const suggestionsContainer = document.getElementById('search-suggestions');
+        let selectedSuggestionIndex = -1;
+
+        function showSuggestions(query) {
+            if (!query.trim()) {
+                suggestionsContainer.classList.remove('active');
+                return;
+            }
+
+            const matches = allKeywords.filter(k =>
+                k.toLowerCase().includes(query.toLowerCase())
+            ).slice(0, 8);
+
+            if (matches.length === 0) {
+                suggestionsContainer.classList.remove('active');
+                return;
+            }
+
+            suggestionsContainer.innerHTML = matches.map((keyword, index) => `
+                <div class="search-suggestion" data-keyword="${keyword}" data-index="${index}">
+                    <i class="fas fa-tag"></i>
+                    <span>${keyword}</span>
+                    <span class="suggestion-tag">keyword</span>
+                </div>
+            `).join('');
+
+            suggestionsContainer.classList.add('active');
+            selectedSuggestionIndex = -1;
+
+            // Add click handlers
+            suggestionsContainer.querySelectorAll('.search-suggestion').forEach(el => {
+                el.addEventListener('click', function() {
+                    searchInput.value = this.dataset.keyword;
+                    searchQuery = this.dataset.keyword;
+                    suggestionsContainer.classList.remove('active');
+                    visibleProjectCount = 6;
+                    renderVisualProjects();
+                });
+            });
+        }
+
+        if (searchInput) {
+            searchInput.addEventListener('input', function() {
+                searchQuery = this.value;
+                visibleProjectCount = 6;
+                renderVisualProjects();
+                showSuggestions(this.value);
+            });
+
+            searchInput.addEventListener('keydown', function(e) {
+                const suggestions = suggestionsContainer.querySelectorAll('.search-suggestion');
+                if (!suggestionsContainer.classList.contains('active') || suggestions.length === 0) return;
+
+                if (e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    selectedSuggestionIndex = Math.min(selectedSuggestionIndex + 1, suggestions.length - 1);
+                    suggestions.forEach((s, i) => s.classList.toggle('selected', i === selectedSuggestionIndex));
+                } else if (e.key === 'ArrowUp') {
+                    e.preventDefault();
+                    selectedSuggestionIndex = Math.max(selectedSuggestionIndex - 1, 0);
+                    suggestions.forEach((s, i) => s.classList.toggle('selected', i === selectedSuggestionIndex));
+                } else if (e.key === 'Enter' && selectedSuggestionIndex >= 0) {
+                    e.preventDefault();
+                    const selected = suggestions[selectedSuggestionIndex];
+                    searchInput.value = selected.dataset.keyword;
+                    searchQuery = selected.dataset.keyword;
+                    suggestionsContainer.classList.remove('active');
+                    visibleProjectCount = 6;
+                    renderVisualProjects();
+                } else if (e.key === 'Escape') {
+                    suggestionsContainer.classList.remove('active');
+                }
+            });
+
+            searchInput.addEventListener('blur', function() {
+                setTimeout(() => suggestionsContainer.classList.remove('active'), 200);
+            });
+
+            searchInput.addEventListener('focus', function() {
+                if (this.value.trim()) showSuggestions(this.value);
+            });
+        }
 
         // Initialize visual projects
         renderVisualProjects();
@@ -1270,7 +1412,7 @@
             </div>
             <div class="modal-footer">
                 <a id="modal-github-btn" href="#" target="_blank" class="modal-github-btn">
-                    <i class="fab fa-github"></i> View on GitHub
+                    <i class="fab fa-github"></i> Github
                 </a>
             </div>
         </div>
