@@ -1861,7 +1861,7 @@ body.dark-mode .visual-info {
     }
 
     .visual-preview {
-        height: 165px;
+        height: 160px;
         overflow: hidden;
         position: relative;
     }
@@ -1869,7 +1869,7 @@ body.dark-mode .visual-info {
     .visual-preview iframe {
         position: absolute;
         left: 50%;
-        transform: translateX(-50%) scale(0.34);
+        transform: translateX(-50%) scale(0.30);
         transform-origin: top center;
     }
 
