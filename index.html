@@ -1138,13 +1138,17 @@
                 return;
             }
 
-            suggestionsContainer.innerHTML = matches.map((keyword, index) => `
+            suggestionsContainer.innerHTML = matches.map((keyword, index) => {
+                const highlightedKeyword = keyword.replace(
+                    new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi'),
+                    '<span class="match-highlight">$1</span>'
+                );
+                return `
                 <div class="search-suggestion" data-keyword="${keyword}" data-index="${index}">
-                    <i class="fas fa-tag"></i>
-                    <span>${keyword}</span>
+                    <span>${highlightedKeyword}</span>
                     <span class="suggestion-tag">keyword</span>
                 </div>
-            `).join('');
+            `}).join('');
 
             suggestionsContainer.classList.add('active');
             selectedSuggestionIndex = -1;
