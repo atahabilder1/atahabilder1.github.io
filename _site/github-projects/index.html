@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub Projects - Anik Tahabilder</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 50%, #0f0f1a 100%);
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .header h1 {
+      color: #fff;
+      font-size: 42px;
+      margin-bottom: 15px;
+      background: linear-gradient(90deg, #64ffda, #a78bfa, #f472b6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .header p {
+      color: #8892b0;
+      font-size: 18px;
+    }
+
+    .search-filter {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .search-box {
+      padding: 12px 20px;
+      border: 2px solid rgba(255,255,255,0.1);
+      border-radius: 25px;
+      background: rgba(255,255,255,0.05);
+      color: #fff;
+      font-size: 14px;
+      width: 300px;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .search-box:focus {
+      border-color: #64ffda;
+    }
+
+    .filter-tags {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .filter-tag {
+      padding: 8px 16px;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 20px;
+      background: transparent;
+      color: #8892b0;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .filter-tag:hover,
+    .filter-tag.active {
+      background: rgba(100, 255, 218, 0.1);
+      border-color: #64ffda;
+      color: #64ffda;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+      margin-bottom: 40px;
+    }
+
+    @media (max-width: 900px) {
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .project-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+      cursor: pointer;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      border-color: rgba(100, 255, 218, 0.3);
+    }
+
+    .project-card.hidden {
+      display: none;
+    }
+
+    .project-preview {
+      position: relative;
+      padding-top: 56.25%;
+      background: #1a1a2e;
+      overflow: hidden;
+    }
+
+    .project-preview iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      transform: scale(0.5);
+      transform-origin: top left;
+      width: 200%;
+      height: 200%;
+      pointer-events: none;
+    }
+
+    .project-info {
+      padding: 20px;
+    }
+
+    .project-title {
+      color: #fff;
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .project-desc {
+      color: #8892b0;
+      font-size: 13px;
+      line-height: 1.5;
+      margin-bottom: 15px;
+    }
+
+    .project-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .project-tag {
+      padding: 4px 10px;
+      background: rgba(100, 255, 218, 0.1);
+      border-radius: 12px;
+      color: #64ffda;
+      font-size: 11px;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 15px;
+      padding: 8px 16px;
+      background: rgba(100, 255, 218, 0.1);
+      border: 1px solid rgba(100, 255, 218, 0.3);
+      border-radius: 20px;
+      color: #64ffda;
+      text-decoration: none;
+      font-size: 12px;
+      transition: all 0.3s;
+    }
+
+    .project-link:hover {
+      background: rgba(100, 255, 218, 0.2);
+    }
+
+    .load-more-container {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .load-more-btn {
+      padding: 15px 40px;
+      background: linear-gradient(135deg, #64ffda, #4fd1c5);
+      border: none;
+      border-radius: 30px;
+      color: #0f0f1a;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .load-more-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 30px rgba(100, 255, 218, 0.3);
+    }
+
+    .load-more-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .project-count {
+      color: #8892b0;
+      font-size: 14px;
+      margin-top: 15px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #64ffda;
+      text-decoration: none;
+      font-size: 14px;
+      margin-bottom: 30px;
+      transition: gap 0.3s;
+    }
+
+    .back-link:hover {
+      gap: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="../index.html" class="back-link">← Back to Portfolio</a>
+
+    <div class="header">
+      <h1>GitHub Projects</h1>
+      <p>Visual diagrams showcasing my open-source work</p>
+    </div>
+
+    <div class="search-filter">
+      <input type="text" class="search-box" placeholder="Search projects..." id="searchBox">
+      <div class="filter-tags">
+        <button class="filter-tag active" data-filter="all">All</button>
+        <button class="filter-tag" data-filter="blockchain">Blockchain</button>
+        <button class="filter-tag" data-filter="ml">ML/AI</button>
+        <button class="filter-tag" data-filter="security">Security</button>
+        <button class="filter-tag" data-filter="web">Web/Apps</button>
+        <button class="filter-tag" data-filter="data">Data Science</button>
+      </div>
+    </div>
+
+    <div class="projects-grid" id="projectsGrid">
+      <!-- Projects will be inserted here by JavaScript -->
+    </div>
+
+    <div class="load-more-container">
+      <button class="load-more-btn" id="loadMoreBtn">Load More Projects</button>
+      <p class="project-count" id="projectCount"></p>
+    </div>
+  </div>
+
+  <script>
+    const projects = [
+      {
+        id: 'yield-lock',
+        title: 'YieldLock',
+        desc: 'ERC-20 staking system with rewards for long-term holders and penalties for early withdrawals.',
+        tags: ['DeFi', 'Solidity', 'Staking'],
+        category: 'blockchain',
+        url: 'https://github.com/atahabilder1/Yield-lock'
+      },
+      {
+        id: 'royaltify',
+        title: 'Royaltify',
+        desc: 'NFT marketplace with ERC-721 support and EIP-2981 creator royalties.',
+        tags: ['NFT', 'Solidity', 'Marketplace'],
+        category: 'blockchain',
+        url: 'https://github.com/atahabilder1/Royaltify'
+      },
+      {
+        id: 'triton',
+        title: 'Triton',
+        desc: 'Multi-modal smart contract vulnerability detection using deep learning.',
+        tags: ['Deep Learning', 'Security', 'GAT'],
+        category: 'security',
+        url: 'https://github.com/atahabilder1/Triton'
+      },
+      {
+        id: 'actor',
+        title: 'Actor',
+        desc: 'Human-in-the-loop multi-agent system for smart contract security auditing.',
+        tags: ['LLM', 'Multi-Agent', 'Security'],
+        category: 'security',
+        url: 'https://github.com/atahabilder1/Actor'
+      },
+      {
+        id: 'depegscope',
+        title: 'DepegScope',
+        desc: 'Stablecoin depeg contagion analysis framework for DeFi risk assessment.',
+        tags: ['DeFi', 'Risk Analysis', 'Python'],
+        category: 'blockchain',
+        url: 'https://github.com/atahabilder1/DepegScope'
+      },
+      {
+        id: 'credit-card-fraud',
+        title: 'Credit Card Fraud Detection',
+        desc: 'GPU-optimized ML system achieving 100% fraud detection with 99.8% precision.',
+        tags: ['XGBoost', 'CUDA', 'Fraud'],
+        category: 'ml',
+        url: 'https://github.com/atahabilder1/Credit-Card-Fraud-Detection'
+      },
+      {
+        id: 'flashx',
+        title: 'FlashX',
+        desc: 'Flash loan simulation on Aave V3 demonstrating DeFi composability.',
+        tags: ['Aave', 'Flash Loans', 'DeFi'],
+        category: 'blockchain',
+        url: 'https://github.com/atahabilder1/Flashx'
+      },
+      {
+        id: 'bgp-sentry',
+        title: 'BGP-Sentry',
+        desc: 'Distributed blockchain-based security system for BGP networks.',
+        tags: ['BGP', 'Blockchain', 'Network'],
+        category: 'security',
+        url: 'https://github.com/atahabilder1/BGP-Sentry'
+      },
+      {
+        id: 'finrisk-analytics',
+        title: 'FinRisk Analytics',
+        desc: 'Institutional-grade risk modeling toolkit for VaR calculation.',
+        tags: ['GARCH', 'LSTM', 'Risk'],
+        category: 'ml',
+        url: 'https://github.com/atahabilder1/Finrisk-analytics'
+      },
+      {
+        id: 'alpharl-portfolio',
+        title: 'AlphaRL Portfolio',
+        desc: 'Deep reinforcement learning for dynamic portfolio optimization.',
+        tags: ['RL', 'PPO', 'Trading'],
+        category: 'ml',
+        url: 'https://github.com/atahabilder1/Alpharl-portfolio'
+      },
+      {
+        id: 'research-pilot',
+        title: 'Research Pilot',
+        desc: 'AI agent that streamlines academic research workflows with RAG.',
+        tags: ['RAG', 'LangChain', 'Research'],
+        category: 'ml',
+        url: 'https://github.com/atahabilder1/Research-pilot'
+      },
+      {
+        id: 'documind',
+        title: 'DocuMind',
+        desc: 'Multi-modal AI agent for intelligent document understanding.',
+        tags: ['Vision', 'RAG', 'Documents'],
+        category: 'ml',
+        url: 'https://github.com/atahabilder1/DocuMind'
+      },
+      {
+        id: 'trinity-wallet',
+        title: 'Trinity Wallet',
+        desc: 'Secure, Ethereum-focused multi-platform Web3 wallet.',
+        tags: ['Wallet', 'Web3', 'ZK'],
+        category: 'blockchain',
+        url: 'https://github.com/atahabilder1/Trinity-wallet'
+      },
+      {
+        id: 'fortuna-lottery',
+        title: 'Fortuna Lottery',
+        desc: 'Decentralized lottery with Chainlink VRF for provably fair randomness.',
+        tags: ['Chainlink', 'VRF', 'ZK'],
+        category: 'blockchain',
+        url: 'https://github.com/atahabilder1/Fortuna-lottery'
+      },
+      {
+        id: 'movie-recommendation',
+        title: 'Movie Recommendation System',
+        desc: 'Neural collaborative filtering achieving 24% better than Netflix Prize.',
+        tags: ['PyTorch', 'RecSys', 'Neural'],
+        category: 'ml',
+        url: 'https://github.com/atahabilder1/Movie-Recommendation-System'
+      },
+      {
+        id: 'factcheck',
+        title: 'FactCheckAI',
+        desc: 'Automated fake news detection with NLP and transformers.',
+        tags: ['NLP', 'BERT', 'Classification'],
+        category: 'ml',
+        url: 'https://github.com/atahabilder1/FactCheck'
+      },
+      {
+        id: 'synger',
+        title: 'Synger',
+        desc: 'Vocal processing tool for pitch-perfect singing performances.',
+        tags: ['Audio', 'Deep Learning', 'Music'],
+        category: 'ml',
+        url: 'https://github.com/atahabilder1/Synger'
+      },
+      {
+        id: 'audit-agent',
+        title: 'AuditAgent',
+        desc: 'AI-powered smart contract security scanner with LLM explanations.',
+        tags: ['Slither', 'Mythril', 'LLM'],
+        category: 'security',
+        url: 'https://github.com/atahabilder1/AuditAgent'
+      },
+      {
+        id: '4naly3er',
+        title: '4naly3er',
+        desc: 'Enhanced static analysis for smart contract vulnerabilities.',
+        tags: ['TypeScript', 'Security', 'Analysis'],
+        category: 'security',
+        url: 'https://github.com/atahabilder1/4naly3er'
+      },
+      {
+        id: 'market-intelligence',
+        title: 'MarketIntelligence',
+        desc: 'Multi-asset ML forecasting for alpha signal generation.',
+        tags: ['XGBoost', 'LSTM', 'Trading'],
+        category: 'ml',
+        url: 'https://github.com/atahabilder1/MarketIntelligence'
+      },
+      {
+        id: 'healthcare-analytics',
+        title: 'Healthcare Analytics',
+        desc: 'End-to-end ML for medical test outcome prediction.',
+        tags: ['Healthcare', 'ML', 'EDA'],
+        category: 'data',
+        url: 'https://github.com/atahabilder1/Healthcare-analytics'
+      },
+      {
+        id: 'kaggle',
+        title: 'Kaggle ML Guide',
+        desc: '22 hands-on projects from CNNs to distributed training.',
+        tags: ['CNN', 'NLP', 'GANs'],
+        category: 'ml',
+        url: 'https://github.com/atahabilder1/kaggle'
+      },
+      {
+        id: 'ibm-data-science',
+        title: 'SpaceX Landing Prediction',
+        desc: 'IBM Data Science Capstone with 87.5% accuracy.',
+        tags: ['ML', 'Folium', 'SpaceX'],
+        category: 'data',
+        url: 'https://github.com/atahabilder1/IBM-Data-Science-Certificate'
+      },
+      {
+        id: 'smart-contract-audit-tools',
+        title: 'Audit Tools Evaluation',
+        desc: 'Benchmark suite for vulnerability detection tools.',
+        tags: ['Research', 'Benchmark', 'Security'],
+        category: 'security',
+        url: 'https://github.com/atahabilder1/SmartContractAuditToolsEvaluation'
+      },
+      {
+        id: 'fastcapture',
+        title: 'FastCapture',
+        desc: 'Lightning-fast area screenshot tool for Ubuntu.',
+        tags: ['Bash', 'Ubuntu', 'Productivity'],
+        category: 'web',
+        url: 'https://github.com/atahabilder1/Fastcapture'
+      },
+      {
+        id: 'zenbreak',
+        title: 'ZenBreak',
+        desc: 'Cross-platform desktop wellness assistant with 20-20-20 rule.',
+        tags: ['Flutter', 'Desktop', 'Wellness'],
+        category: 'web',
+        url: 'https://github.com/atahabilder1/ZenBreak'
+      },
+      {
+        id: 'quic-protocol',
+        title: 'QUIC Protocol Tutorial',
+        desc: 'Educational simulation for connection migration.',
+        tags: ['QUIC', 'HTTP/3', 'Networking'],
+        category: 'web',
+        url: 'https://github.com/atahabilder1/QUIC_Protocol_tutorial'
+      },
+      {
+        id: 'discord-bot',
+        title: 'Discord Fishing Bot',
+        desc: 'Interactive minigame with economy system.',
+        tags: ['Discord.js', 'Node.js', 'MySQL'],
+        category: 'web',
+        url: 'https://github.com/atahabilder1/Discord-conversation-bot'
+      },
+      {
+        id: 'jwt-auth',
+        title: 'JWT Auth Tutorial',
+        desc: 'Full-stack authentication with React & Express.',
+        tags: ['React', 'Express', 'JWT'],
+        category: 'web',
+        url: 'https://github.com/atahabilder1/Jwt-auth-tutorial'
+      },
+      {
+        id: 'csc4710',
+        title: 'CSC4710 Student Records',
+        desc: 'Full-stack database systems teaching project.',
+        tags: ['React', 'Express', 'MySQL'],
+        category: 'web',
+        url: 'https://github.com/atahabilder1/CSC4710-instructor-react-express'
+      },
+      {
+        id: 'heat-flow',
+        title: 'Heat Flow Visualization',
+        desc: 'MATLAB 2D heat conduction simulation.',
+        tags: ['MATLAB', 'Simulation', 'Physics'],
+        category: 'data',
+        url: 'https://github.com/atahabilder1/Heat-Flow-Visualization'
+      },
+      {
+        id: 'awesome-smart-contract',
+        title: 'Awesome Smart Contract Security',
+        desc: 'Curated knowledge base for blockchain security.',
+        tags: ['Resources', 'Security', 'CTF'],
+        category: 'security',
+        url: 'https://github.com/atahabilder1/Awesome-Smart-Contract-Security-Anik'
+      }
+    ];
+
+    let visibleCount = 6;
+    let currentFilter = 'all';
+    let searchQuery = '';
+
+    function getFilteredProjects() {
+      return projects.filter(p => {
+        const matchesFilter = currentFilter === 'all' || p.category === currentFilter;
+        const matchesSearch = searchQuery === '' ||
+          p.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          p.desc.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          p.tags.some(t => t.toLowerCase().includes(searchQuery.toLowerCase()));
+        return matchesFilter && matchesSearch;
+      });
+    }
+
+    function renderProjects() {
+      const grid = document.getElementById('projectsGrid');
+      const filtered = getFilteredProjects();
+
+      grid.innerHTML = filtered.slice(0, visibleCount).map(p => `
+        <div class="project-card" data-category="${p.category}" onclick="window.open('${p.url}', '_blank')">
+          <div class="project-preview">
+            <iframe src="${p.id}.html" loading="lazy"></iframe>
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">${p.title}</h3>
+            <p class="project-desc">${p.desc}</p>
+            <div class="project-tags">
+              ${p.tags.map(t => `<span class="project-tag">${t}</span>`).join('')}
+            </div>
+            <a href="${p.url}" target="_blank" class="project-link" onclick="event.stopPropagation()">
+              <i class="fab fa-github"></i> Github
+            </a>
+          </div>
+        </div>
+      `).join('');
+
+      const btn = document.getElementById('loadMoreBtn');
+      btn.disabled = visibleCount >= filtered.length;
+      btn.textContent = visibleCount >= filtered.length ? 'All Projects Loaded' : 'Load More Projects';
+
+      document.getElementById('projectCount').textContent =
+        `Showing ${Math.min(visibleCount, filtered.length)} of ${filtered.length} projects`;
+    }
+
+    document.getElementById('loadMoreBtn').addEventListener('click', () => {
+      visibleCount += 6;
+      renderProjects();
+    });
+
+    document.querySelectorAll('.filter-tag').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-tag').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentFilter = btn.dataset.filter;
+        visibleCount = 6;
+        renderProjects();
+      });
+    });
+
+    document.getElementById('searchBox').addEventListener('input', (e) => {
+      searchQuery = e.target.value;
+      visibleCount = 6;
+      renderProjects();
+    });
+
+    renderProjects();
+  </script>
+</body>
+</html>

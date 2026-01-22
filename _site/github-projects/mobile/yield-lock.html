@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YieldLock</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .container {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .header-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #f39c12, #e74c3c);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      margin: 0 auto 12px;
+    }
+    .header h1 {
+      color: #fff;
+      font-size: 26px;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+    .header p {
+      color: #8892b0;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+    .github-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.1);
+      padding: 6px 16px;
+      border-radius: 20px;
+      color: #64ffda;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+    .section {
+      margin-bottom: 24px;
+    }
+    .section-title {
+      color: #64ffda;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .flow-steps {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .step {
+      background: rgba(255,255,255,0.05);
+      border-radius: 14px;
+      padding: 16px 12px;
+      text-align: center;
+    }
+    .step-icon {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+    .step-num {
+      color: #64ffda;
+      font-size: 10px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .step-title {
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .tiers-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .tier {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 14px 8px;
+      text-align: center;
+    }
+    .tier.best {
+      border-color: #f39c12;
+      background: rgba(243, 156, 18, 0.15);
+      grid-column: span 3;
+    }
+    .tier-badge {
+      background: #f39c12;
+      color: #000;
+      font-size: 9px;
+      padding: 3px 8px;
+      border-radius: 10px;
+      margin-bottom: 6px;
+      display: inline-block;
+      font-weight: 600;
+    }
+    .tier-label {
+      color: #8892b0;
+      font-size: 11px;
+      margin-bottom: 4px;
+    }
+    .tier-value {
+      color: #64ffda;
+      font-size: 22px;
+      font-weight: bold;
+    }
+    .tier.best .tier-value {
+      font-size: 28px;
+    }
+    .features {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .feature {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255,255,255,0.03);
+      padding: 14px;
+      border-radius: 12px;
+    }
+    .feature-icon {
+      font-size: 22px;
+    }
+    .feature-text {
+      color: #fff;
+      font-size: 13px;
+      font-weight: 500;
+    }
+    .feature-sub {
+      color: #8892b0;
+      font-size: 11px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="header-icon">🔒</div>
+      <h1>YieldLock</h1>
+      <p>Stake longer, earn more — trustless DeFi staking with tiered rewards</p>
+      <div class="github-badge">DeFi • Solidity</div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">📋 How It Works</div>
+      <div class="flow-steps">
+        <div class="step">
+          <div class="step-icon">💰</div>
+          <div class="step-num">Step 1</div>
+          <div class="step-title">Deposit</div>
+        </div>
+        <div class="step">
+          <div class="step-icon">⏱️</div>
+          <div class="step-num">Step 2</div>
+          <div class="step-title">Lock Period</div>
+        </div>
+        <div class="step">
+          <div class="step-icon">📈</div>
+          <div class="step-num">Step 3</div>
+          <div class="step-title">Earn Rewards</div>
+        </div>
+        <div class="step">
+          <div class="step-icon">🎯</div>
+          <div class="step-num">Step 4</div>
+          <div class="step-title">Withdraw</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">📊 Staking Tiers</div>
+      <div class="tiers-grid">
+        <div class="tier">
+          <div class="tier-label">Flexible</div>
+          <div class="tier-value">0%</div>
+        </div>
+        <div class="tier">
+          <div class="tier-label">30 Days</div>
+          <div class="tier-value">5%</div>
+        </div>
+        <div class="tier">
+          <div class="tier-label">90 Days</div>
+          <div class="tier-value">8%</div>
+        </div>
+        <div class="tier">
+          <div class="tier-label">180 Days</div>
+          <div class="tier-value">12%</div>
+        </div>
+        <div class="tier best">
+          <div class="tier-badge">BEST VALUE</div>
+          <div class="tier-label">365 Days</div>
+          <div class="tier-value">18%</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">✨ Features</div>
+      <div class="features">
+        <div class="feature">
+          <div class="feature-icon">🛡️</div>
+          <div><div class="feature-text">Audited Contracts</div><div class="feature-sub">OpenZeppelin Security</div></div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">⚡</div>
+          <div><div class="feature-text">Real-time Rewards</div><div class="feature-sub">Watch earnings grow</div></div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🔑</div>
+          <div><div class="feature-text">Non-Custodial</div><div class="feature-sub">Your keys, your coins</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

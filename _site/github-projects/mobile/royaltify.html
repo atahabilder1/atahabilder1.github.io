@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Royaltify</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0d0d1a 0%, #1a1a3e 50%, #2d1b4e 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .container {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .header-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #a855f7, #ec4899);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      margin: 0 auto 12px;
+    }
+    .header h1 {
+      color: #fff;
+      font-size: 26px;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+    .header p {
+      color: #9ca3af;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+    .github-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.1);
+      padding: 6px 16px;
+      border-radius: 20px;
+      color: #a855f7;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+    .section {
+      margin-bottom: 24px;
+    }
+    .section-title {
+      color: #a855f7;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .flow-steps {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .step {
+      background: rgba(168, 85, 247, 0.1);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      border-radius: 14px;
+      padding: 16px 12px;
+      text-align: center;
+    }
+    .step-icon {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+    .step-title {
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    .feature {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 14px 10px;
+      text-align: center;
+    }
+    .feature-icon {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+    .feature-title {
+      color: #fff;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .feature-desc {
+      color: #9ca3af;
+      font-size: 10px;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    .stat-card {
+      background: rgba(168, 85, 247, 0.1);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      border-radius: 12px;
+      padding: 16px 12px;
+      text-align: center;
+    }
+    .stat-value {
+      color: #a855f7;
+      font-size: 22px;
+      font-weight: bold;
+    }
+    .stat-label {
+      color: #9ca3af;
+      font-size: 11px;
+    }
+    .tech-stack {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .tech-tag {
+      background: rgba(255,255,255,0.05);
+      padding: 6px 12px;
+      border-radius: 15px;
+      color: #fff;
+      font-size: 11px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="header-icon">🎨</div>
+      <h1>Royaltify</h1>
+      <p>NFT Marketplace with ERC-721 & EIP-2981 Creator Royalties</p>
+      <div class="github-badge">NFT • Solidity</div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">🔄 Trading Flow</div>
+      <div class="flow-steps">
+        <div class="step">
+          <div class="step-icon">🖼️</div>
+          <div class="step-title">Mint NFT</div>
+        </div>
+        <div class="step">
+          <div class="step-icon">📋</div>
+          <div class="step-title">List Item</div>
+        </div>
+        <div class="step">
+          <div class="step-icon">🛒</div>
+          <div class="step-title">Buy & Trade</div>
+        </div>
+        <div class="step">
+          <div class="step-icon">💸</div>
+          <div class="step-title">Auto Royalties</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">✨ Key Features</div>
+      <div class="features-grid">
+        <div class="feature">
+          <div class="feature-icon">🛡️</div>
+          <div class="feature-title">Reentrancy Safe</div>
+          <div class="feature-desc">ReentrancyGuard protection</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">👑</div>
+          <div class="feature-title">Creator Royalties</div>
+          <div class="feature-desc">EIP-2981 compliant</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">💳</div>
+          <div class="feature-title">Pull Payments</div>
+          <div class="feature-desc">Secure withdrawals</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">📊 Protocol Stats</div>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-value">2.5%</div>
+          <div class="stat-label">Platform Fee</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">10%</div>
+          <div class="stat-label">Max Royalty</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">ERC-721</div>
+          <div class="stat-label">Token Standard</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">IPFS</div>
+          <div class="stat-label">Metadata</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">🛠️ Tech Stack</div>
+      <div class="tech-stack">
+        <span class="tech-tag">Solidity</span>
+        <span class="tech-tag">Foundry</span>
+        <span class="tech-tag">OpenZeppelin</span>
+        <span class="tech-tag">Ethers.js</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

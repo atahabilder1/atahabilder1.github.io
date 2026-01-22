@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Welcome to my blog! I’m Anik Tahabilder, a PhD student at Wayne State University specializing in blockchain technology and machine learning.
+">
+    <meta name="author" content="Anik Tahabilder">
+    <title>Welcome to My Blog | Anik Tahabilder</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <style>
+        .post-hero {
+            padding: 120px 0 40px;
+            background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-white) 100%);
+        }
+
+        .post-hero .container {
+            max-width: 800px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            margin-bottom: 24px;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            color: var(--primary-dark);
+        }
+
+        .post-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+
+        .post-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 16px;
+        }
+
+        .post-meta i {
+            margin-right: 6px;
+            color: var(--primary-color);
+        }
+
+        .post-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .post-tag {
+            padding: 4px 12px;
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary-color);
+            font-size: 0.8rem;
+            border-radius: var(--radius-full);
+        }
+
+        .post-content-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 24px;
+        }
+
+        .post-content {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: var(--text-dark);
+        }
+
+        .post-content h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin: 40px 0 20px;
+        }
+
+        .post-content h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin: 32px 0 16px;
+        }
+
+        .post-content p {
+            margin-bottom: 20px;
+        }
+
+        .post-content a {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        .post-content a:hover {
+            color: var(--primary-dark);
+        }
+
+        .post-content ul,
+        .post-content ol {
+            margin-bottom: 20px;
+            padding-left: 24px;
+        }
+
+        .post-content li {
+            margin-bottom: 8px;
+        }
+
+        .post-content blockquote {
+            border-left: 4px solid var(--primary-color);
+            padding: 16px 24px;
+            margin: 24px 0;
+            background: var(--bg-light);
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        .post-content pre {
+            background: #1f2937;
+            padding: 20px;
+            border-radius: var(--radius-md);
+            overflow-x: auto;
+            margin: 24px 0;
+        }
+
+        .post-content code {
+            font-family: 'Fira Code', 'Consolas', monospace;
+            font-size: 0.9rem;
+        }
+
+        .post-content pre code {
+            color: #e5e7eb;
+        }
+
+        .post-content :not(pre) > code {
+            background: var(--bg-light);
+            padding: 2px 8px;
+            border-radius: 4px;
+            color: var(--text-dark);
+        }
+
+        .post-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--radius-md);
+            margin: 24px 0;
+        }
+
+        .post-content strong {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .post-nav {
+            display: flex;
+            justify-content: space-between;
+            gap: 24px;
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .post-nav a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        .post-nav a:hover {
+            color: var(--primary-dark);
+        }
+
+        @media (max-width: 768px) {
+            .post-title {
+                font-size: 1.8rem;
+            }
+
+            .post-nav {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Navigation -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">Anik Tahabilder</a>
+
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
+            </button>
+
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item"><a href="/#home" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="/#about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="/#education" class="nav-link">Education</a></li>
+                <li class="nav-item"><a href="/#research" class="nav-link">Research</a></li>
+                <li class="nav-item"><a href="/#projects" class="nav-link">Projects</a></li>
+                <li class="nav-item"><a href="/#publications" class="nav-link">Publications</a></li>
+                <li class="nav-item"><a href="/#contact" class="nav-link">Contact</a></li>
+                <li class="nav-item"><a href="/blog.html" class="nav-link nav-blog">Blog</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Post Header -->
+    <section class="post-hero">
+        <div class="container">
+            <a href="/blog.html" class="back-link">
+                <i class="fas fa-arrow-left"></i> Back to Blog
+            </a>
+            <h1 class="post-title">Welcome to My Blog</h1>
+            <div class="post-meta">
+                <span><i class="fas fa-calendar"></i> January 16, 2026</span>
+                
+                <span><i class="fas fa-user"></i> Anik Tahabilder</span>
+                
+                
+                <span><i class="fas fa-folder"></i> General</span>
+                
+            </div>
+            
+            <div class="post-tags">
+                
+                <span class="post-tag">introduction</span>
+                
+                <span class="post-tag">research</span>
+                
+                <span class="post-tag">blockchain</span>
+                
+                <span class="post-tag">machine-learning</span>
+                
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Post Content -->
+    <div class="post-content-wrapper">
+        <article class="post-content">
+            <p>Welcome to my blog! I’m Anik Tahabilder, a PhD student at Wayne State University specializing in blockchain technology and machine learning.</p>
+
+<h2 id="what-to-expect">What to Expect</h2>
+
+<p>In this blog, I’ll be sharing:</p>
+
+<ul>
+  <li><strong>Research Updates</strong>: Progress on my smart contract security research and ML-based audit tools</li>
+  <li><strong>Technical Deep Dives</strong>: Detailed explanations of blockchain concepts and machine learning algorithms</li>
+  <li><strong>Tutorials</strong>: Step-by-step guides on topics like Solidity development, Python ML libraries, and data science workflows</li>
+  <li><strong>Thoughts on Web3</strong>: My perspectives on the evolving blockchain ecosystem</li>
+</ul>
+
+<h2 id="my-research-focus">My Research Focus</h2>
+
+<p>My current research focuses on developing an AI-powered Smart Contract Audit Tool that leverages Machine Learning to enhance the security and reliability of blockchain-based smart contracts. This includes:</p>
+
+<ol>
+  <li>Static and dynamic analysis techniques for vulnerability detection</li>
+  <li>Natural Language Processing for contract logic analysis</li>
+  <li>Explainable AI (XAI) techniques for transparent security findings</li>
+</ol>
+
+<h2 id="stay-connected">Stay Connected</h2>
+
+<p>Feel free to reach out via:</p>
+<ul>
+  <li>Email: tahabilderanik@gmail.com</li>
+  <li>Twitter: <a href="https://twitter.com/atahabilder1">@atahabilder1</a></li>
+  <li>LinkedIn: <a href="https://linkedin.com/in/tahabilder">linkedin.com/in/tahabilder</a></li>
+</ul>
+
+<p>Stay tuned for more posts!</p>
+
+        </article>
+
+        <nav class="post-nav">
+            
+            <a href="/blog/2026/01/15/understanding-smart-contract-vulnerabilities/">
+                <i class="fas fa-arrow-left"></i> Understanding Common Smart Contract V...
+            </a>
+            
+
+            
+        </nav>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Anik Tahabilder. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Dark Mode Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            body.classList.add('dark-mode');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            const isDark = body.classList.contains('dark-mode');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+
+        // Mobile Navigation Toggle
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

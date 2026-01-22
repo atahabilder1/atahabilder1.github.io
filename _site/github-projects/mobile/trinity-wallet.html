@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trinity Wallet</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 50%, #2d1f00 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .container {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .header-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #f97316, #ea580c);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      margin: 0 auto 12px;
+    }
+    .header h1 {
+      color: #fff;
+      font-size: 26px;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+    .header p {
+      color: #a1a1aa;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.1);
+      padding: 6px 16px;
+      border-radius: 20px;
+      color: #f97316;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+    .section {
+      margin-bottom: 24px;
+    }
+    .section-title {
+      color: #f97316;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .platforms {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .platforms .platform:last-child {
+      grid-column: span 2;
+    }
+    .platform {
+      background: rgba(249,115,22,0.1);
+      border: 2px solid rgba(249,115,22,0.3);
+      border-radius: 14px;
+      padding: 16px 12px;
+      text-align: center;
+    }
+    .platform-icon {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+    .platform-name {
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .platform-desc {
+      color: #a1a1aa;
+      font-size: 11px;
+      margin-top: 3px;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .feature {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 14px;
+      text-align: center;
+    }
+    .feature-icon {
+      font-size: 24px;
+      margin-bottom: 6px;
+    }
+    .feature-title {
+      color: #fff;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .feature-desc {
+      color: #a1a1aa;
+      font-size: 10px;
+      margin-top: 3px;
+    }
+    .security-box {
+      background: rgba(34,197,94,0.1);
+      border: 1px solid rgba(34,197,94,0.3);
+      border-radius: 12px;
+      padding: 16px;
+    }
+    .security-title {
+      color: #22c55e;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+    .security-items {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .security-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .security-icon {
+      font-size: 20px;
+    }
+    .security-text {
+      color: #22c55e;
+      font-size: 12px;
+    }
+    .tech-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .tech-tag {
+      background: rgba(249,115,22,0.15);
+      padding: 6px 12px;
+      border-radius: 12px;
+      color: #fdba74;
+      font-size: 11px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="header-icon">👛</div>
+      <h1>Trinity Wallet</h1>
+      <p>Secure, Ethereum-Focused Multi-Platform Web3 Wallet</p>
+      <div class="badge">Web3 • Wallet</div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">🖥️ Multi-Platform Support</div>
+      <div class="platforms">
+        <div class="platform">
+          <div class="platform-icon">🌐</div>
+          <div class="platform-name">Browser Extension</div>
+          <div class="platform-desc">Chrome, Firefox, Edge</div>
+        </div>
+        <div class="platform">
+          <div class="platform-icon">📱</div>
+          <div class="platform-name">Mobile App</div>
+          <div class="platform-desc">iOS & Android</div>
+        </div>
+        <div class="platform">
+          <div class="platform-icon">🖥️</div>
+          <div class="platform-name">Desktop App</div>
+          <div class="platform-desc">Win, Mac, Linux</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">✨ Key Features</div>
+      <div class="features-grid">
+        <div class="feature">
+          <div class="feature-icon">🔑</div>
+          <div class="feature-title">Account Mgmt</div>
+          <div class="feature-desc">Seed phrase wallets</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">✍️</div>
+          <div class="feature-title">TX Signing</div>
+          <div class="feature-desc">Secure signatures</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🔗</div>
+          <div class="feature-title">dApp Connect</div>
+          <div class="feature-desc">DeFi & NFT apps</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">👻</div>
+          <div class="feature-title">Stealth Addr</div>
+          <div class="feature-desc">Enhanced privacy</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🔐</div>
+          <div class="feature-title">Zero-Knowledge</div>
+          <div class="feature-desc">ZK proof support</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">⛓️</div>
+          <div class="feature-title">EVM Chains</div>
+          <div class="feature-desc">All ETH-based</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="security-box">
+        <div class="security-title">🛡️ Security First</div>
+        <div class="security-items">
+          <div class="security-item">
+            <span class="security-icon">🔒</span>
+            <span class="security-text">Non-Custodial Design</span>
+          </div>
+          <div class="security-item">
+            <span class="security-icon">✅</span>
+            <span class="security-text">Open Source Audited</span>
+          </div>
+          <div class="security-item">
+            <span class="security-icon">🛡️</span>
+            <span class="security-text">Hardware Wallet Support</span>
+          </div>
+          <div class="security-item">
+            <span class="security-icon">🔐</span>
+            <span class="security-text">Encrypted Local Storage</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">🛠️ Tech Stack</div>
+      <div class="tech-row">
+        <span class="tech-tag">React</span>
+        <span class="tech-tag">TypeScript</span>
+        <span class="tech-tag">Ethers.js</span>
+        <span class="tech-tag">Web3</span>
+        <span class="tech-tag">Electron</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heat Flow Visualization</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #1a0a0a 0%, #3d1515 50%, #5c1f1f 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .container {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .header-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #f97316, #dc2626);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      margin: 0 auto 12px;
+    }
+    .header h1 {
+      color: #fff;
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+    .header p {
+      color: #fca5a5;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+    .github-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.1);
+      padding: 6px 16px;
+      border-radius: 20px;
+      color: #f97316;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+    .section {
+      margin-bottom: 24px;
+    }
+    .section-title {
+      color: #f97316;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .simulation {
+      background: rgba(249,115,22,0.1);
+      border: 1px solid rgba(249,115,22,0.3);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+    }
+    .sim-title {
+      color: #f97316;
+      font-size: 12px;
+      margin-bottom: 15px;
+    }
+    .heat-grid {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      gap: 4px;
+      max-width: 280px;
+      margin: 0 auto;
+    }
+    .heat-cell {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 4px;
+    }
+    .temp-1 { background: #1e3a8a; }
+    .temp-2 { background: #3b82f6; }
+    .temp-3 { background: #22c55e; }
+    .temp-4 { background: #eab308; }
+    .temp-5 { background: #f97316; }
+    .temp-6 { background: #dc2626; }
+    .methods {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .method {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px;
+      padding: 16px 12px;
+      text-align: center;
+    }
+    .method:last-child {
+      grid-column: span 2;
+    }
+    .method-icon {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+    .method-name {
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .method-desc {
+      color: #fca5a5;
+      font-size: 10px;
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .feature {
+      background: rgba(249,115,22,0.1);
+      border: 1px solid rgba(249,115,22,0.3);
+      border-radius: 12px;
+      padding: 16px 12px;
+      text-align: center;
+    }
+    .feature-icon {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+    .feature-name {
+      color: #fff;
+      font-size: 12px;
+      font-weight: 500;
+    }
+    .feature-desc {
+      color: #fca5a5;
+      font-size: 10px;
+      margin-top: 4px;
+    }
+    .tech-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .tech-tag {
+      background: rgba(249,115,22,0.15);
+      padding: 6px 12px;
+      border-radius: 12px;
+      color: #fdba74;
+      font-size: 11px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="header-icon">🔥</div>
+      <h1>Heat Flow Visualization</h1>
+      <p>2D Heat Conduction Simulation using Finite Difference Method</p>
+      <div class="github-badge">MATLAB • Simulation</div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">🌡️ Temperature Distribution</div>
+      <div class="simulation">
+        <div class="heat-grid">
+          <div class="heat-cell temp-6"></div><div class="heat-cell temp-5"></div><div class="heat-cell temp-5"></div><div class="heat-cell temp-4"></div><div class="heat-cell temp-3"></div><div class="heat-cell temp-2"></div><div class="heat-cell temp-2"></div><div class="heat-cell temp-1"></div>
+          <div class="heat-cell temp-5"></div><div class="heat-cell temp-5"></div><div class="heat-cell temp-4"></div><div class="heat-cell temp-4"></div><div class="heat-cell temp-3"></div><div class="heat-cell temp-2"></div><div class="heat-cell temp-1"></div><div class="heat-cell temp-1"></div>
+          <div class="heat-cell temp-4"></div><div class="heat-cell temp-4"></div><div class="heat-cell temp-4"></div><div class="heat-cell temp-3"></div><div class="heat-cell temp-3"></div><div class="heat-cell temp-2"></div><div class="heat-cell temp-1"></div><div class="heat-cell temp-1"></div>
+          <div class="heat-cell temp-3"></div><div class="heat-cell temp-3"></div><div class="heat-cell temp-3"></div><div class="heat-cell temp-3"></div><div class="heat-cell temp-2"></div><div class="heat-cell temp-2"></div><div class="heat-cell temp-1"></div><div class="heat-cell temp-1"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">📐 Methods</div>
+      <div class="methods">
+        <div class="method">
+          <div class="method-icon">🔢</div>
+          <div class="method-name">Finite Difference</div>
+          <div class="method-desc">Numerical PDE</div>
+        </div>
+        <div class="method">
+          <div class="method-icon">🔄</div>
+          <div class="method-name">Gauss-Seidel</div>
+          <div class="method-desc">Iterative solver</div>
+        </div>
+        <div class="method">
+          <div class="method-icon">📹</div>
+          <div class="method-name">MP4 Export</div>
+          <div class="method-desc">Animation</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">✨ Features</div>
+      <div class="features">
+        <div class="feature"><div class="feature-icon">🌡️</div><div class="feature-name">Thermal Sim</div><div class="feature-desc">Heat conduction</div></div>
+        <div class="feature"><div class="feature-icon">📊</div><div class="feature-name">Visualization</div><div class="feature-desc">Color mapping</div></div>
+        <div class="feature"><div class="feature-icon">📉</div><div class="feature-name">Convergence</div><div class="feature-desc">RMS analysis</div></div>
+        <div class="feature"><div class="feature-icon">🎬</div><div class="feature-name">Animation</div><div class="feature-desc">Time evolution</div></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">🛠️ Tech Stack</div>
+      <div class="tech-row">
+        <span class="tech-tag">MATLAB</span>
+        <span class="tech-tag">Simulation</span>
+        <span class="tech-tag">PDE</span>
+        <span class="tech-tag">WCU 2018</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EnclaveML</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0c0c1d 0%, #1e1e3f 50%, #2d2d5a 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .container {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .header-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #f97316, #ea580c);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      margin: 0 auto 12px;
+    }
+    .header h1 {
+      color: #fff;
+      font-size: 26px;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+    .header p {
+      color: #94a3b8;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+    .github-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.1);
+      padding: 6px 16px;
+      border-radius: 20px;
+      color: #f97316;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+    .section {
+      margin-bottom: 24px;
+    }
+    .section-title {
+      color: #f97316;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .architecture {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .arch-box {
+      background: rgba(249,115,22,0.1);
+      border: 1px solid rgba(249,115,22,0.3);
+      border-radius: 14px;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .arch-icon {
+      font-size: 28px;
+      flex-shrink: 0;
+    }
+    .arch-content {
+      flex: 1;
+    }
+    .arch-title {
+      color: #f97316;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+    .arch-desc {
+      color: #fff;
+      font-size: 12px;
+    }
+    .flow-box {
+      background: rgba(234,88,12,0.1);
+      border: 1px solid rgba(234,88,12,0.3);
+      border-radius: 14px;
+      padding: 16px;
+    }
+    .flow {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .flow-item {
+      background: rgba(255,255,255,0.05);
+      padding: 10px 14px;
+      border-radius: 15px;
+      color: #fff;
+      font-size: 12px;
+    }
+    .flow-arrow {
+      color: #f97316;
+      font-size: 16px;
+    }
+    .flow-result {
+      background: rgba(249,115,22,0.3) !important;
+      width: 100%;
+      text-align: center;
+      margin-top: 8px;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    .feature {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 14px 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .feat-icon {
+      font-size: 22px;
+    }
+    .feat-text {
+      color: #fff;
+      font-size: 12px;
+      font-weight: 500;
+    }
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .stat {
+      background: rgba(249,115,22,0.15);
+      border-radius: 12px;
+      padding: 14px 8px;
+      text-align: center;
+    }
+    .stat-value {
+      color: #f97316;
+      font-size: 22px;
+      font-weight: bold;
+    }
+    .stat-label {
+      color: #94a3b8;
+      font-size: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="header-icon">🔒</div>
+      <h1>EnclaveML</h1>
+      <p>Privacy-Preserving Distributed ML Inference with Zero-Knowledge Proofs</p>
+      <div class="github-badge">Rust • ZK Proofs • ML</div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">🏗️ Distributed Architecture</div>
+      <div class="architecture">
+        <div class="arch-box">
+          <div class="arch-icon">🖥️</div>
+          <div class="arch-content">
+            <div class="arch-title">Worker Nodes</div>
+            <div class="arch-desc">GPU Compute</div>
+          </div>
+        </div>
+        <div class="arch-box">
+          <div class="arch-icon">🔗</div>
+          <div class="arch-content">
+            <div class="arch-title">Aggregator</div>
+            <div class="arch-desc">Proof Verify</div>
+          </div>
+        </div>
+        <div class="arch-box">
+          <div class="arch-icon">🛡️</div>
+          <div class="arch-content">
+            <div class="arch-title">ZK Proofs</div>
+            <div class="arch-desc">Verifiable</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">⚡ Inference Pipeline</div>
+      <div class="flow-box">
+        <div class="flow">
+          <div class="flow-item">Data Split</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-item">Worker Process</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-item">ZK Proof Gen</div>
+          <div class="flow-item flow-result">Aggregate Results</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">🚀 Key Features</div>
+      <div class="features-grid">
+        <div class="feature">
+          <span class="feat-icon">🦀</span>
+          <span class="feat-text">Rust + Burn</span>
+        </div>
+        <div class="feature">
+          <span class="feat-icon">🎮</span>
+          <span class="feat-text">CUDA/Metal</span>
+        </div>
+        <div class="feature">
+          <span class="feat-icon">📡</span>
+          <span class="feat-text">gRPC Comms</span>
+        </div>
+        <div class="feature">
+          <span class="feat-icon">🔐</span>
+          <span class="feat-text">Data Privacy</span>
+        </div>
+        <div class="feature">
+          <span class="feat-icon">⚖️</span>
+          <span class="feat-text">Load Balance</span>
+        </div>
+        <div class="feature">
+          <span class="feat-icon">🔄</span>
+          <span class="feat-text">Fault Tolerant</span>
+        </div>
+      </div>
+      <div class="stats-row">
+        <div class="stat">
+          <div class="stat-value">zkML</div>
+          <div class="stat-label">Verifiable</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">3</div>
+          <div class="stat-label">Backends</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">4</div>
+          <div class="stat-label">Aggregation</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

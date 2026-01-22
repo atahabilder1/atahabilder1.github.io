@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CryptoHound</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0c0c1d 0%, #1e1e3f 50%, #2d2d5a 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .container {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .header-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #ef4444, #dc2626);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      margin: 0 auto 12px;
+    }
+    .header h1 {
+      color: #fff;
+      font-size: 26px;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+    .header p {
+      color: #94a3b8;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+    .github-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.1);
+      padding: 6px 16px;
+      border-radius: 20px;
+      color: #ef4444;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+    .section {
+      margin-bottom: 24px;
+    }
+    .section-title {
+      color: #ef4444;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .architecture {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .arch-box {
+      background: rgba(239,68,68,0.1);
+      border: 1px solid rgba(239,68,68,0.3);
+      border-radius: 14px;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .arch-icon {
+      font-size: 28px;
+      flex-shrink: 0;
+    }
+    .arch-content {
+      flex: 1;
+    }
+    .arch-title {
+      color: #ef4444;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+    .arch-desc {
+      color: #fff;
+      font-size: 12px;
+    }
+    .flow-box {
+      background: rgba(220,38,38,0.1);
+      border: 1px solid rgba(220,38,38,0.3);
+      border-radius: 14px;
+      padding: 16px;
+    }
+    .flow {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .flow-item {
+      background: rgba(255,255,255,0.05);
+      padding: 10px 14px;
+      border-radius: 15px;
+      color: #fff;
+      font-size: 12px;
+    }
+    .flow-arrow {
+      color: #ef4444;
+      font-size: 16px;
+    }
+    .flow-result {
+      background: rgba(239,68,68,0.3) !important;
+      width: 100%;
+      text-align: center;
+      margin-top: 8px;
+    }
+    .detections-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    .detection {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 14px 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .det-icon {
+      font-size: 22px;
+    }
+    .det-text {
+      color: #fff;
+      font-size: 12px;
+      font-weight: 500;
+    }
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .stat {
+      background: rgba(239,68,68,0.15);
+      border-radius: 12px;
+      padding: 14px 8px;
+      text-align: center;
+    }
+    .stat-value {
+      color: #ef4444;
+      font-size: 22px;
+      font-weight: bold;
+    }
+    .stat-label {
+      color: #94a3b8;
+      font-size: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="header-icon">🐕</div>
+      <h1>CryptoHound</h1>
+      <p>Verifiable Blockchain Security Detection with ZK Proofs on Near Protocol</p>
+      <div class="github-badge">Security • ZK • Near</div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">🏗️ System Architecture</div>
+      <div class="architecture">
+        <div class="arch-box">
+          <div class="arch-icon">🔍</div>
+          <div class="arch-content">
+            <div class="arch-title">Detection Engine</div>
+            <div class="arch-desc">risc0 zkVM</div>
+          </div>
+        </div>
+        <div class="arch-box">
+          <div class="arch-icon">🛡️</div>
+          <div class="arch-content">
+            <div class="arch-title">Proof Generator</div>
+            <div class="arch-desc">ZK Proofs</div>
+          </div>
+        </div>
+        <div class="arch-box">
+          <div class="arch-icon">📜</div>
+          <div class="arch-content">
+            <div class="arch-title">Smart Contract</div>
+            <div class="arch-desc">On-Chain Verify</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">⚡ Trustless Detection</div>
+      <div class="flow-box">
+        <div class="flow">
+          <div class="flow-item">Monitor Txns</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-item">Rule Analysis</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-item">ZK Proof</div>
+          <div class="flow-item flow-result">Verified Alert</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">🎯 Fraud Detection Rules</div>
+      <div class="detections-grid">
+        <div class="detection">
+          <span class="det-icon">🔄</span>
+          <span class="det-text">Wash Trading</span>
+        </div>
+        <div class="detection">
+          <span class="det-icon">💰</span>
+          <span class="det-text">Money Launder</span>
+        </div>
+        <div class="detection">
+          <span class="det-icon">🤖</span>
+          <span class="det-text">Bot Activity</span>
+        </div>
+        <div class="detection">
+          <span class="det-icon">📊</span>
+          <span class="det-text">Large Transfer</span>
+        </div>
+        <div class="detection">
+          <span class="det-icon">🔀</span>
+          <span class="det-text">Fund Splitting</span>
+        </div>
+        <div class="detection">
+          <span class="det-icon">🔁</span>
+          <span class="det-text">Round-Trip</span>
+        </div>
+      </div>
+      <div class="stats-row">
+        <div class="stat">
+          <div class="stat-value">6</div>
+          <div class="stat-label">Rules</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">ZK</div>
+          <div class="stat-label">Trustless</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">Near</div>
+          <div class="stat-label">Chain</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

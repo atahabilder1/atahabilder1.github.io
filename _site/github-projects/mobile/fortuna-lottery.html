@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fortuna Lottery</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #1a0a2e 0%, #2d1b4e 50%, #4c1d95 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .container {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .header-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #e879f9, #d946ef);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      margin: 0 auto 12px;
+    }
+    .header h1 {
+      color: #fff;
+      font-size: 26px;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+    .header p {
+      color: #c4b5fd;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+    .github-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.1);
+      padding: 6px 16px;
+      border-radius: 20px;
+      color: #e879f9;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+    .section {
+      margin-bottom: 24px;
+    }
+    .section-title {
+      color: #e879f9;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .vrf-banner {
+      background: linear-gradient(90deg, rgba(232,121,249,0.2), rgba(217,70,239,0.2));
+      border: 2px solid rgba(232,121,249,0.5);
+      border-radius: 12px;
+      padding: 15px;
+      text-align: center;
+    }
+    .vrf-title {
+      color: #e879f9;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .vrf-desc {
+      color: #c4b5fd;
+      font-size: 11px;
+      margin-top: 6px;
+      line-height: 1.4;
+    }
+    .flow-steps {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .flow-step {
+      background: rgba(255,255,255,0.05);
+      border-radius: 14px;
+      padding: 16px 12px;
+      text-align: center;
+    }
+    .flow-icon {
+      width: 50px;
+      height: 50px;
+      background: rgba(232,121,249,0.2);
+      border: 2px solid rgba(232,121,249,0.5);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 8px;
+      font-size: 22px;
+    }
+    .flow-label {
+      color: #fff;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .flow-desc {
+      color: #c4b5fd;
+      font-size: 10px;
+      margin-top: 4px;
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    .feature {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 15px;
+      text-align: center;
+    }
+    .feature-icon {
+      font-size: 24px;
+      margin-bottom: 6px;
+    }
+    .feature-name {
+      color: #fff;
+      font-size: 11px;
+      font-weight: 600;
+    }
+    .feature-desc {
+      color: #c4b5fd;
+      font-size: 9px;
+      margin-top: 3px;
+    }
+    .tech-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .tech-tag {
+      background: rgba(232,121,249,0.15);
+      padding: 6px 12px;
+      border-radius: 12px;
+      color: #f5d0fe;
+      font-size: 11px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="header-icon">🎰</div>
+      <h1>Fortuna Lottery</h1>
+      <p>Decentralized Lottery with Provably Fair Randomness</p>
+      <div class="github-badge">Chainlink • VRF</div>
+    </div>
+
+    <div class="section">
+      <div class="vrf-banner">
+        <div class="vrf-title">🔗 Powered by Chainlink VRF</div>
+        <div class="vrf-desc">Verifiable Random Function ensures tamper-proof, provably fair winner selection</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">🎫 Lottery Flow</div>
+      <div class="flow-steps">
+        <div class="flow-step">
+          <div class="flow-icon">🎫</div>
+          <div class="flow-label">Buy Tickets</div>
+          <div class="flow-desc">Purchase with ETH</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-icon">⏰</div>
+          <div class="flow-label">Wait for Draw</div>
+          <div class="flow-desc">Pool grows</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-icon">🎲</div>
+          <div class="flow-label">VRF Random</div>
+          <div class="flow-desc">Chainlink generates</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-icon">🏆</div>
+          <div class="flow-label">Winner Paid</div>
+          <div class="flow-desc">Auto transfer</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">✨ Features</div>
+      <div class="features">
+        <div class="feature">
+          <div class="feature-icon">🔐</div>
+          <div class="feature-name">ZK Proofs</div>
+          <div class="feature-desc">Circom privacy</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">⛓️</div>
+          <div class="feature-name">On-Chain</div>
+          <div class="feature-desc">Transparent logic</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🌐</div>
+          <div class="feature-name">Next.js UI</div>
+          <div class="feature-desc">Modern frontend</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🛡️</div>
+          <div class="feature-name">Secure Payout</div>
+          <div class="feature-desc">Audited transfers</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">🛠️ Tech Stack</div>
+      <div class="tech-row">
+        <span class="tech-tag">Solidity</span>
+        <span class="tech-tag">Chainlink VRF</span>
+        <span class="tech-tag">Next.js</span>
+        <span class="tech-tag">Circom</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

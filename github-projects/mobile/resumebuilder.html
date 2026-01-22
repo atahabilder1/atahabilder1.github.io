@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ResumeBuilder</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0c0c1d 0%, #1e1e3f 50%, #2d2d5a 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .container {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .header-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #10b981, #059669);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      margin: 0 auto 12px;
+    }
+    .header h1 {
+      color: #fff;
+      font-size: 26px;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+    .header p {
+      color: #94a3b8;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+    .github-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.1);
+      padding: 6px 16px;
+      border-radius: 20px;
+      color: #10b981;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+    .section {
+      margin-bottom: 24px;
+    }
+    .section-title {
+      color: #10b981;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .roles-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    .role {
+      background: rgba(16,185,129,0.1);
+      border: 1px solid rgba(16,185,129,0.3);
+      border-radius: 12px;
+      padding: 14px 12px;
+      text-align: center;
+    }
+    .role-icon {
+      font-size: 24px;
+      margin-bottom: 6px;
+    }
+    .role-title {
+      color: #10b981;
+      font-size: 11px;
+      font-weight: 600;
+    }
+    .flow-box {
+      background: rgba(5,150,105,0.1);
+      border: 1px solid rgba(5,150,105,0.3);
+      border-radius: 14px;
+      padding: 16px;
+    }
+    .flow {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .flow-item {
+      background: rgba(255,255,255,0.05);
+      padding: 10px 14px;
+      border-radius: 15px;
+      color: #fff;
+      font-size: 12px;
+    }
+    .flow-arrow {
+      color: #10b981;
+      font-size: 16px;
+    }
+    .flow-result {
+      background: rgba(16,185,129,0.3) !important;
+      width: 100%;
+      text-align: center;
+      margin-top: 8px;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    .feature {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 14px 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .feat-icon {
+      font-size: 22px;
+    }
+    .feat-text {
+      color: #fff;
+      font-size: 12px;
+      font-weight: 500;
+    }
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .stat {
+      background: rgba(16,185,129,0.15);
+      border-radius: 12px;
+      padding: 14px 8px;
+      text-align: center;
+    }
+    .stat-value {
+      color: #10b981;
+      font-size: 22px;
+      font-weight: bold;
+    }
+    .stat-label {
+      color: #94a3b8;
+      font-size: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="header-icon">📄</div>
+      <h1>ResumeBuilder</h1>
+      <p>LLM-Powered Resume Assistant with LaTeX Templates</p>
+      <div class="github-badge">LaTeX • AI Agents • PDF</div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">👔 Career Role Templates</div>
+      <div class="roles-grid">
+        <div class="role">
+          <div class="role-icon">🤖</div>
+          <div class="role-title">AI Engineer</div>
+        </div>
+        <div class="role">
+          <div class="role-icon">📊</div>
+          <div class="role-title">Data Analyst</div>
+        </div>
+        <div class="role">
+          <div class="role-icon">🧠</div>
+          <div class="role-title">ML Engineer</div>
+        </div>
+        <div class="role">
+          <div class="role-icon">📈</div>
+          <div class="role-title">Quant Analyst</div>
+        </div>
+        <div class="role">
+          <div class="role-icon">📜</div>
+          <div class="role-title">Smart Contract</div>
+        </div>
+        <div class="role">
+          <div class="role-icon">💻</div>
+          <div class="role-title">Software Eng</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">⚡ Generation Pipeline</div>
+      <div class="flow-box">
+        <div class="flow">
+          <div class="flow-item">Job Description</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-item">LLM Analysis</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-item">LaTeX</div>
+          <div class="flow-item flow-result">PDF Output</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">🚀 Key Features</div>
+      <div class="features-grid">
+        <div class="feature">
+          <span class="feat-icon">📝</span>
+          <span class="feat-text">LaTeX Styling</span>
+        </div>
+        <div class="feature">
+          <span class="feat-icon">🤖</span>
+          <span class="feat-text">AI-Powered</span>
+        </div>
+        <div class="feature">
+          <span class="feat-icon">✉️</span>
+          <span class="feat-text">Cover Letters</span>
+        </div>
+        <div class="feature">
+          <span class="feat-icon">🎨</span>
+          <span class="feat-text">Professional</span>
+        </div>
+        <div class="feature">
+          <span class="feat-icon">🎯</span>
+          <span class="feat-text">Role-Specific</span>
+        </div>
+        <div class="feature">
+          <span class="feat-icon">📄</span>
+          <span class="feat-text">PDF Export</span>
+        </div>
+      </div>
+      <div class="stats-row">
+        <div class="stat">
+          <div class="stat-value">7</div>
+          <div class="stat-label">Templates</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">LaTeX</div>
+          <div class="stat-label">100% TeX</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">AI</div>
+          <div class="stat-label">Tailored</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

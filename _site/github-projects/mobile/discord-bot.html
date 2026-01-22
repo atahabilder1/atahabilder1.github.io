@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discord Fishing Bot</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #2c2f33 0%, #23272a 50%, #2c2f33 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .container {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .header-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #5865f2, #4752c4);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      margin: 0 auto 12px;
+    }
+    .header h1 {
+      color: #fff;
+      font-size: 26px;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+    .header p {
+      color: #b9bbbe;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+    .github-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.1);
+      padding: 6px 16px;
+      border-radius: 20px;
+      color: #5865f2;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+    .section {
+      margin-bottom: 24px;
+    }
+    .section-title {
+      color: #5865f2;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .game-features {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .game-feature {
+      background: rgba(88,101,242,0.1);
+      border: 1px solid rgba(88,101,242,0.3);
+      border-radius: 14px;
+      padding: 20px 15px;
+      text-align: center;
+    }
+    .game-feature:last-child {
+      grid-column: span 2;
+    }
+    .feature-icon { font-size: 32px; margin-bottom: 8px; }
+    .feature-name { color: #fff; font-size: 13px; font-weight: 600; margin-bottom: 5px; }
+    .feature-desc { color: #b9bbbe; font-size: 10px; }
+    .rarity-section {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 16px;
+    }
+    .rarities {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    .rarity {
+      text-align: center;
+      padding: 12px;
+      border-radius: 10px;
+    }
+    .rarity-common { background: rgba(128,128,128,0.2); }
+    .rarity-rare { background: rgba(0,112,221,0.2); }
+    .rarity-epic { background: rgba(163,53,238,0.2); }
+    .rarity-legend { background: rgba(255,165,0,0.2); }
+    .rarity-icon { font-size: 24px; margin-bottom: 6px; }
+    .rarity-label { color: #fff; font-size: 11px; }
+    .commands {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .command {
+      background: rgba(88,101,242,0.1);
+      border: 1px solid rgba(88,101,242,0.3);
+      border-radius: 12px;
+      padding: 14px;
+      text-align: center;
+    }
+    .command-name { color: #5865f2; font-size: 12px; font-weight: 600; font-family: monospace; }
+    .command-desc { color: #b9bbbe; font-size: 10px; margin-top: 4px; }
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+    }
+    .tech-tag {
+      background: rgba(88,101,242,0.15);
+      padding: 6px 12px;
+      border-radius: 12px;
+      color: #a5b4fc;
+      font-size: 11px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="header-icon">🎮</div>
+      <h1>Discord Fishing Bot</h1>
+      <p>Interactive Minigame with Economy System</p>
+      <div class="github-badge">Discord • Game</div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">🎣 Game Features</div>
+      <div class="game-features">
+        <div class="game-feature">
+          <div class="feature-icon">🎣</div>
+          <div class="feature-name">Fishing</div>
+          <div class="feature-desc">Randomized catches with rarity tiers</div>
+        </div>
+        <div class="game-feature">
+          <div class="feature-icon">💰</div>
+          <div class="feature-name">Economy</div>
+          <div class="feature-desc">Earn money, manage inventory</div>
+        </div>
+        <div class="game-feature">
+          <div class="feature-icon">🏪</div>
+          <div class="feature-name">Shop</div>
+          <div class="feature-desc">Purchase gear upgrades</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">🐟 Rarity Tiers</div>
+      <div class="rarity-section">
+        <div class="rarities">
+          <div class="rarity rarity-common">
+            <div class="rarity-icon">🐟</div>
+            <div class="rarity-label">Common</div>
+          </div>
+          <div class="rarity rarity-rare">
+            <div class="rarity-icon">🐠</div>
+            <div class="rarity-label">Rare</div>
+          </div>
+          <div class="rarity rarity-epic">
+            <div class="rarity-icon">🐡</div>
+            <div class="rarity-label">Epic</div>
+          </div>
+          <div class="rarity rarity-legend">
+            <div class="rarity-icon">🦈</div>
+            <div class="rarity-label">Legendary</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">⌨️ Commands</div>
+      <div class="commands">
+        <div class="command">
+          <div class="command-name">/fish</div>
+          <div class="command-desc">Cast your line</div>
+        </div>
+        <div class="command">
+          <div class="command-name">/inventory</div>
+          <div class="command-desc">View catches</div>
+        </div>
+        <div class="command">
+          <div class="command-name">/shop</div>
+          <div class="command-desc">Buy gear</div>
+        </div>
+        <div class="command">
+          <div class="command-name">/sell</div>
+          <div class="command-desc">Sell fish</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">🛠️ Tech Stack</div>
+      <div class="tech-stack">
+        <span class="tech-tag">Discord.js</span>
+        <span class="tech-tag">Node.js</span>
+        <span class="tech-tag">MySQL</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

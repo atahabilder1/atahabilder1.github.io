@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Awesome Smart Contract Security</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0d1117 0%, #161b22 50%, #21262d 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .container {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .header-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #f0883e, #db6d28);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      margin: 0 auto 12px;
+    }
+    .header h1 {
+      color: #fff;
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+    .header p {
+      color: #8b949e;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+    .github-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.1);
+      padding: 6px 16px;
+      border-radius: 20px;
+      color: #f0883e;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+    .section {
+      margin-bottom: 24px;
+    }
+    .section-title {
+      color: #f0883e;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .resource {
+      background: rgba(240,136,62,0.1);
+      border: 1px solid rgba(240,136,62,0.3);
+      border-radius: 14px;
+      padding: 16px 12px;
+      text-align: center;
+    }
+    .resource-icon {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+    .resource-name {
+      color: #fff;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .resource-desc {
+      color: #8b949e;
+      font-size: 10px;
+    }
+    .tools-section {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px;
+      padding: 18px;
+    }
+    .tools-title {
+      color: #f0883e;
+      font-size: 12px;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+    .tools-list {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .tool-tag {
+      background: rgba(255,255,255,0.05);
+      padding: 6px 14px;
+      border-radius: 15px;
+      color: #d1d5db;
+      font-size: 11px;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .feature {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px;
+      padding: 16px 12px;
+      text-align: center;
+    }
+    .feature-icon {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+    .feature-name {
+      color: #fff;
+      font-size: 12px;
+      font-weight: 500;
+    }
+    .feature-desc {
+      color: #8b949e;
+      font-size: 10px;
+      margin-top: 4px;
+    }
+    .tech-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .tech-tag {
+      background: rgba(240,136,62,0.15);
+      padding: 6px 12px;
+      border-radius: 12px;
+      color: #fbbf24;
+      font-size: 11px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="header-icon">⭐</div>
+      <h1>Awesome Smart Contract Security</h1>
+      <p>Curated Knowledge Base for Blockchain Security Research</p>
+      <div class="github-badge">Awesome • Security</div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">📚 Resources</div>
+      <div class="resources-grid">
+        <div class="resource">
+          <div class="resource-icon">📚</div>
+          <div class="resource-name">Research Papers</div>
+          <div class="resource-desc">Academic studies</div>
+        </div>
+        <div class="resource">
+          <div class="resource-icon">🛠️</div>
+          <div class="resource-name">Security Tools</div>
+          <div class="resource-desc">Analysis tools</div>
+        </div>
+        <div class="resource">
+          <div class="resource-icon">🚩</div>
+          <div class="resource-name">CTF Challenges</div>
+          <div class="resource-desc">Practice hacking</div>
+        </div>
+        <div class="resource">
+          <div class="resource-icon">📖</div>
+          <div class="resource-name">Training Courses</div>
+          <div class="resource-desc">Educational</div>
+        </div>
+        <div class="resource">
+          <div class="resource-icon">✅</div>
+          <div class="resource-name">Audit Checklists</div>
+          <div class="resource-desc">Review guides</div>
+        </div>
+        <div class="resource">
+          <div class="resource-icon">💰</div>
+          <div class="resource-name">Bug Bounties</div>
+          <div class="resource-desc">Reward programs</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">🔧 Featured Security Tools</div>
+      <div class="tools-section">
+        <div class="tools-list">
+          <span class="tool-tag">Slither</span>
+          <span class="tool-tag">Mythril</span>
+          <span class="tool-tag">Echidna</span>
+          <span class="tool-tag">Foundry</span>
+          <span class="tool-tag">Manticore</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">✨ Highlights</div>
+      <div class="features-grid">
+        <div class="feature">
+          <div class="feature-icon">🔬</div>
+          <div class="feature-name">Research</div>
+          <div class="feature-desc">Latest findings</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🎓</div>
+          <div class="feature-name">Learning</div>
+          <div class="feature-desc">Tutorials</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🏆</div>
+          <div class="feature-name">Competitions</div>
+          <div class="feature-desc">CTF events</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🌐</div>
+          <div class="feature-name">Community</div>
+          <div class="feature-desc">Open source</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">🏷️ Topics</div>
+      <div class="tech-row">
+        <span class="tech-tag">Ethereum</span>
+        <span class="tech-tag">Solidity</span>
+        <span class="tech-tag">Smart Contracts</span>
+        <span class="tech-tag">Security</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

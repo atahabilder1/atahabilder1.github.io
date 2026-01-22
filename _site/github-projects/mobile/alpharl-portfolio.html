@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AlphaRL Portfolio</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0f0f23 0%, #1a1a3a 50%, #2d1540 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .container {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .header-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #f472b6, #ec4899);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      margin: 0 auto 12px;
+    }
+    .header h1 {
+      color: #fff;
+      font-size: 26px;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+    .header p {
+      color: #a1a1aa;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+    .github-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.1);
+      padding: 6px 16px;
+      border-radius: 20px;
+      color: #f472b6;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+    .section {
+      margin-bottom: 24px;
+    }
+    .section-title {
+      color: #f472b6;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .flow-steps {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .step {
+      background: rgba(244,114,182,0.1);
+      border: 1px solid rgba(244,114,182,0.3);
+      border-radius: 14px;
+      padding: 16px 12px;
+      text-align: center;
+    }
+    .step-icon {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #f472b6, #ec4899);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 8px;
+      font-size: 22px;
+    }
+    .step-label {
+      color: #fff;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .step-sub {
+      color: #a1a1aa;
+      font-size: 10px;
+      margin-top: 2px;
+    }
+    .objectives-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .objective {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px;
+      padding: 16px 12px;
+      text-align: center;
+    }
+    .objective.full-width {
+      grid-column: span 2;
+    }
+    .obj-icon {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+    .obj-title {
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .obj-desc {
+      color: #a1a1aa;
+      font-size: 11px;
+      margin-top: 4px;
+    }
+    .assets-box {
+      background: rgba(236,72,153,0.1);
+      border: 1px solid rgba(236,72,153,0.3);
+      border-radius: 14px;
+      padding: 18px;
+    }
+    .assets-title {
+      color: #ec4899;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+    .assets {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+    .asset {
+      background: rgba(236,72,153,0.15);
+      padding: 8px 12px;
+      border-radius: 15px;
+      color: #f9a8d4;
+      font-size: 11px;
+      text-align: center;
+    }
+    .tech-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .tech-tag {
+      background: rgba(244,114,182,0.15);
+      padding: 6px 12px;
+      border-radius: 12px;
+      color: #f9a8d4;
+      font-size: 11px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="header-icon">🧠</div>
+      <h1>AlphaRL Portfolio</h1>
+      <p>Deep Reinforcement Learning for Dynamic Portfolio Optimization</p>
+      <div class="github-badge">RL • Finance</div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">🔄 PPO Training Loop</div>
+      <div class="flow-steps">
+        <div class="step">
+          <div class="step-icon">📊</div>
+          <div class="step-label">State</div>
+          <div class="step-sub">Market data</div>
+        </div>
+        <div class="step">
+          <div class="step-icon">🤖</div>
+          <div class="step-label">PPO Agent</div>
+          <div class="step-sub">Policy network</div>
+        </div>
+        <div class="step">
+          <div class="step-icon">⚡</div>
+          <div class="step-label">Action</div>
+          <div class="step-sub">Rebalance</div>
+        </div>
+        <div class="step">
+          <div class="step-icon">💰</div>
+          <div class="step-label">Reward</div>
+          <div class="step-sub">Risk-adj returns</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">🎯 Optimization Objectives</div>
+      <div class="objectives-grid">
+        <div class="objective">
+          <div class="obj-icon">📈</div>
+          <div class="obj-title">Maximize Sharpe</div>
+          <div class="obj-desc">Risk-adjusted returns</div>
+        </div>
+        <div class="objective">
+          <div class="obj-icon">🛡️</div>
+          <div class="obj-title">Manage Risk</div>
+          <div class="obj-desc">Volatility constraints</div>
+        </div>
+        <div class="objective full-width">
+          <div class="obj-icon">💸</div>
+          <div class="obj-title">Minimize Costs</div>
+          <div class="obj-desc">TX cost aware</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">📊 Asset Classes</div>
+      <div class="assets-box">
+        <div class="assets">
+          <span class="asset">📊 Equities</span>
+          <span class="asset">🏦 Fixed Income</span>
+          <span class="asset">🎯 Alternatives</span>
+          <span class="asset">💱 Crypto</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">🛠️ Tech Stack</div>
+      <div class="tech-row">
+        <span class="tech-tag">PyTorch</span>
+        <span class="tech-tag">OpenAI Gym</span>
+        <span class="tech-tag">PPO</span>
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">Pandas</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
