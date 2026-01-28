@@ -2,67 +2,70 @@
 <html>
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BGP-Sentry</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; width: 100%; }
     body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
     .container {
-      width: 1200px;
-      height: 480px;
+      width: 100%;
+      height: 100%;
+      min-height: 100vh;
       background: linear-gradient(135deg, #0d1117 0%, #161b22 50%, #21262d 100%);
-      padding: 30px 40px;
+      padding: 40px 50px;
       display: flex;
       flex-direction: column;
     }
     .header {
       display: flex;
       align-items: center;
-      gap: 20px;
-      margin-bottom: 25px;
+      gap: 25px;
+      margin-bottom: 35px;
     }
     .header-icon {
-      width: 55px;
-      height: 55px;
+      width: 70px;
+      height: 70px;
       background: linear-gradient(135deg, #58a6ff, #1f6feb);
-      border-radius: 14px;
+      border-radius: 18px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 28px;
+      font-size: 36px;
       flex-shrink: 0;
     }
-    .header-text h1 { color: #fff; font-size: 28px; font-weight: bold; }
-    .header-text p { color: #8b949e; font-size: 14px; }
-    .badge { margin-left: auto; background: rgba(255,255,255,0.1); padding: 6px 14px; border-radius: 20px; color: #58a6ff; font-size: 12px; }
-    .main { display: flex; gap: 30px; flex: 1; }
+    .header-text h1 { color: #fff; font-size: 36px; font-weight: bold; }
+    .header-text p { color: #8b949e; font-size: 18px; }
+    .badge { margin-left: auto; background: rgba(255,255,255,0.1); padding: 10px 20px; border-radius: 25px; color: #58a6ff; font-size: 16px; }
+    .main { display: flex; gap: 40px; flex: 1; }
     .left { flex: 1; }
-    .section-title { color: #58a6ff; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+    .section-title { color: #58a6ff; font-size: 16px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
     .network-diagram {
       background: rgba(88,166,255,0.05);
       border: 1px solid rgba(88,166,255,0.2);
-      border-radius: 12px;
-      padding: 20px;
-      margin-bottom: 15px;
+      border-radius: 14px;
+      padding: 28px;
+      margin-bottom: 20px;
     }
-    .network-nodes { display: flex; justify-content: center; align-items: center; gap: 8px; }
-    .as-node { width: 60px; height: 60px; background: linear-gradient(135deg, #238636, #2ea043); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-direction: column; }
-    .as-label { color: #fff; font-size: 9px; font-weight: 600; }
-    .as-icon { font-size: 18px; }
-    .connection-line { width: 25px; height: 2px; background: linear-gradient(90deg, #58a6ff, transparent); }
-    .blockchain-node { width: 70px; height: 70px; background: linear-gradient(135deg, #58a6ff, #1f6feb); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-direction: column; }
-    .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-    .feature-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 15px; text-align: center; }
-    .feature-icon { font-size: 24px; margin-bottom: 8px; }
-    .feature-title { color: #fff; font-size: 12px; font-weight: 600; }
-    .feature-desc { color: #8b949e; font-size: 10px; margin-top: 4px; }
-    .right { width: 350px; flex-shrink: 0; }
-    .detects { display: flex; flex-direction: column; gap: 10px; }
-    .detect { background: rgba(218,54,51,0.1); border: 1px solid rgba(218,54,51,0.3); border-radius: 10px; padding: 15px; display: flex; align-items: center; gap: 12px; }
-    .detect-icon { font-size: 26px; }
-    .detect-text { color: #fff; font-size: 13px; font-weight: 500; }
-    .detect-sub { color: #8b949e; font-size: 10px; }
-    .tech-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 15px; }
-    .tech-tag { background: rgba(88,166,255,0.15); padding: 6px 12px; border-radius: 12px; color: #58a6ff; font-size: 11px; }
+    .network-nodes { display: flex; justify-content: center; align-items: center; gap: 12px; }
+    .as-node { width: 75px; height: 75px; background: linear-gradient(135deg, #238636, #2ea043); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-direction: column; }
+    .as-label { color: #fff; font-size: 12px; font-weight: 600; }
+    .as-icon { font-size: 24px; }
+    .connection-line { width: 35px; height: 3px; background: linear-gradient(90deg, #58a6ff, transparent); }
+    .blockchain-node { width: 85px; height: 85px; background: linear-gradient(135deg, #58a6ff, #1f6feb); border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-direction: column; }
+    .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .feature-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 20px; text-align: center; }
+    .feature-icon { font-size: 32px; margin-bottom: 12px; }
+    .feature-title { color: #fff; font-size: 15px; font-weight: 600; }
+    .feature-desc { color: #8b949e; font-size: 13px; margin-top: 6px; }
+    .right { width: 400px; flex-shrink: 0; }
+    .detects { display: flex; flex-direction: column; gap: 14px; }
+    .detect { background: rgba(218,54,51,0.1); border: 1px solid rgba(218,54,51,0.3); border-radius: 12px; padding: 20px; display: flex; align-items: center; gap: 16px; }
+    .detect-icon { font-size: 32px; }
+    .detect-text { color: #fff; font-size: 16px; font-weight: 500; }
+    .detect-sub { color: #8b949e; font-size: 13px; }
+    .tech-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
+    .tech-tag { background: rgba(88,166,255,0.15); padding: 10px 16px; border-radius: 14px; color: #58a6ff; font-size: 14px; }
   </style>
 </head>
 <body>
@@ -110,7 +113,7 @@
             <div><div class="detect-text">Route Leak Detection</div><div class="detect-sub">Catches accidental propagation</div></div>
           </div>
         </div>
-        <div class="section-title" style="margin-top:15px;">🛠️ Tech Stack</div>
+        <div class="section-title" style="margin-top:20px;">🛠️ Tech Stack</div>
         <div class="tech-row">
           <span class="tech-tag">Python</span>
           <span class="tech-tag">Blockchain</span>

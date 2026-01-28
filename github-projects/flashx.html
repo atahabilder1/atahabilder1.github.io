@@ -5,63 +5,95 @@
   <title>FlashX</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; width: 100%; }
     body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
     .container {
-      width: 1200px;
-      height: 480px;
+      width: 100%;
+      height: 100%;
+      min-height: 100vh;
       background: linear-gradient(135deg, #0a1628 0%, #1a365d 50%, #2c5282 100%);
-      padding: 30px 40px;
+      padding: 40px 50px;
       display: flex;
       flex-direction: column;
     }
     .header {
       display: flex;
       align-items: center;
-      gap: 20px;
-      margin-bottom: 25px;
+      gap: 25px;
+      margin-bottom: 35px;
     }
     .header-icon {
-      width: 55px;
-      height: 55px;
+      width: 70px;
+      height: 70px;
       background: linear-gradient(135deg, #63b3ed, #4299e1);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 28px;
+      font-size: 36px;
       flex-shrink: 0;
     }
-    .header-text h1 { color: #fff; font-size: 28px; font-weight: bold; }
-    .header-text p { color: #a0aec0; font-size: 14px; }
-    .badge { margin-left: auto; background: rgba(255,255,255,0.1); padding: 6px 14px; border-radius: 20px; color: #63b3ed; font-size: 12px; }
-    .main { display: flex; gap: 30px; flex: 1; }
-    .left { flex: 1; }
-    .section-title { color: #63b3ed; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+    .header-text h1 { color: #fff; font-size: 36px; font-weight: bold; }
+    .header-text p { color: #a0aec0; font-size: 18px; margin-top: 5px; }
+    .badge { margin-left: auto; background: rgba(255,255,255,0.1); padding: 10px 20px; border-radius: 25px; color: #63b3ed; font-size: 14px; font-weight: 500; }
+    .main { display: flex; gap: 50px; flex: 1; }
+    .left { flex: 1.2; display: flex; flex-direction: column; }
+    .section-title { color: #63b3ed; font-size: 16px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; font-weight: 600; }
     .banner {
       background: linear-gradient(90deg, rgba(99,179,237,0.2), rgba(66,153,225,0.2));
       border: 2px solid rgba(99,179,237,0.5);
-      border-radius: 12px;
-      padding: 15px 20px;
-      margin-bottom: 20px;
+      border-radius: 16px;
+      padding: 25px 30px;
+      margin-bottom: 30px;
       text-align: center;
     }
-    .banner-title { color: #63b3ed; font-size: 16px; font-weight: 700; }
-    .banner-desc { color: #a0aec0; font-size: 12px; margin-top: 5px; }
-    .flow { display: flex; align-items: center; gap: 10px; }
+    .banner-title { color: #63b3ed; font-size: 20px; font-weight: 700; }
+    .banner-desc { color: #a0aec0; font-size: 14px; margin-top: 8px; }
+
+    /* Flow Diagram */
+    .flow-section { flex: 1; display: flex; flex-direction: column; }
+    .flow-box {
+      background: rgba(66,153,225,0.1);
+      border: 2px solid rgba(66,153,225,0.3);
+      border-radius: 16px;
+      padding: 30px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .flow { display: flex; align-items: center; justify-content: space-between; gap: 15px; }
     .flow-step { flex: 1; text-align: center; }
-    .flow-num { width: 60px; height: 60px; background: linear-gradient(135deg, #2b6cb0, #3182ce); border: 3px solid #63b3ed; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; font-size: 24px; }
-    .flow-title { color: #fff; font-size: 12px; font-weight: 600; }
-    .flow-desc { color: #a0aec0; font-size: 10px; margin-top: 4px; }
-    .flow-arrow { color: #63b3ed; font-size: 20px; }
-    .right { width: 300px; flex-shrink: 0; }
-    .features { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-    .feature { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 15px; text-align: center; }
-    .feature-icon { font-size: 26px; margin-bottom: 8px; }
-    .feature-text { color: #fff; font-size: 12px; font-weight: 500; }
-    .feature-sub { color: #a0aec0; font-size: 10px; margin-top: 4px; }
-    .info-box { background: rgba(99,179,237,0.1); border: 1px solid rgba(99,179,237,0.3); border-radius: 10px; padding: 15px; margin-top: 15px; text-align: center; }
-    .info-value { color: #63b3ed; font-size: 24px; font-weight: bold; }
-    .info-label { color: #a0aec0; font-size: 11px; margin-top: 5px; }
+    .flow-icon {
+      width: 70px;
+      height: 70px;
+      background: rgba(99,179,237,0.2);
+      border: 2px solid rgba(99,179,237,0.5);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 12px;
+      font-size: 32px;
+    }
+    .flow-label { color: #fff; font-size: 15px; font-weight: 600; }
+    .flow-desc { color: #a0aec0; font-size: 12px; margin-top: 5px; }
+    .flow-arrow { color: #63b3ed; font-size: 28px; flex-shrink: 0; }
+    .flow-step.result .flow-icon {
+      background: rgba(99,179,237,0.4);
+      border-color: #63b3ed;
+    }
+    .flow-step.result .flow-label { color: #63b3ed; }
+
+    .right { width: 380px; flex-shrink: 0; display: flex; flex-direction: column; }
+    .features { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-bottom: 25px; }
+    .feature { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 20px; text-align: center; }
+    .feature-icon { font-size: 32px; margin-bottom: 10px; }
+    .feature-text { color: #fff; font-size: 14px; font-weight: 500; }
+    .feature-sub { color: #a0aec0; font-size: 12px; margin-top: 5px; }
+    .info-box { background: rgba(99,179,237,0.1); border: 1px solid rgba(99,179,237,0.3); border-radius: 14px; padding: 25px; text-align: center; margin-top: auto; }
+    .info-value { color: #63b3ed; font-size: 32px; font-weight: bold; }
+    .info-label { color: #a0aec0; font-size: 13px; margin-top: 8px; }
   </style>
 </head>
 <body>
@@ -80,30 +112,34 @@
           <div class="banner-title">⚡ Single Transaction Magic</div>
           <div class="banner-desc">Borrow millions, execute arbitrage, repay with fee — all in one atomic transaction</div>
         </div>
-        <div class="section-title">🔄 Flash Loan Flow</div>
-        <div class="flow">
-          <div class="flow-step">
-            <div class="flow-num">1️⃣</div>
-            <div class="flow-title">Request Loan</div>
-            <div class="flow-desc">Borrow from Aave</div>
-          </div>
-          <span class="flow-arrow">→</span>
-          <div class="flow-step">
-            <div class="flow-num">2️⃣</div>
-            <div class="flow-title">Execute Trade</div>
-            <div class="flow-desc">Arbitrage ops</div>
-          </div>
-          <span class="flow-arrow">→</span>
-          <div class="flow-step">
-            <div class="flow-num">3️⃣</div>
-            <div class="flow-title">Repay + Fee</div>
-            <div class="flow-desc">Return + 0.09%</div>
-          </div>
-          <span class="flow-arrow">→</span>
-          <div class="flow-step">
-            <div class="flow-num">4️⃣</div>
-            <div class="flow-title">Keep Profit</div>
-            <div class="flow-desc">Net gains yours</div>
+        <div class="flow-section">
+          <div class="section-title">🔄 Flash Loan Flow</div>
+          <div class="flow-box">
+            <div class="flow">
+              <div class="flow-step">
+                <div class="flow-icon">📥</div>
+                <div class="flow-label">Request Loan</div>
+                <div class="flow-desc">Borrow from Aave</div>
+              </div>
+              <span class="flow-arrow">→</span>
+              <div class="flow-step">
+                <div class="flow-icon">📈</div>
+                <div class="flow-label">Execute Trade</div>
+                <div class="flow-desc">Arbitrage ops</div>
+              </div>
+              <span class="flow-arrow">→</span>
+              <div class="flow-step">
+                <div class="flow-icon">💸</div>
+                <div class="flow-label">Repay + Fee</div>
+                <div class="flow-desc">Return + 0.09%</div>
+              </div>
+              <span class="flow-arrow">→</span>
+              <div class="flow-step result">
+                <div class="flow-icon">✅</div>
+                <div class="flow-label">Keep Profit</div>
+                <div class="flow-desc">Net gains yours</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

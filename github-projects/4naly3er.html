@@ -5,56 +5,83 @@
   <title>4naly3er</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; width: 100%; }
     body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
     .container {
-      width: 1200px;
-      height: 480px;
+      width: 100%;
+      height: 100%;
+      min-height: 100vh;
       background: linear-gradient(135deg, #0f0f0f 0%, #1a1a2a 50%, #252540 100%);
-      padding: 30px 40px;
+      padding: 40px 50px;
       display: flex;
       flex-direction: column;
     }
     .header {
       display: flex;
       align-items: center;
-      gap: 20px;
-      margin-bottom: 25px;
+      gap: 25px;
+      margin-bottom: 35px;
     }
     .header-icon {
-      width: 55px;
-      height: 55px;
+      width: 70px;
+      height: 70px;
       background: linear-gradient(135deg, #06b6d4, #0891b2);
-      border-radius: 14px;
+      border-radius: 18px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 28px;
+      font-size: 36px;
       flex-shrink: 0;
     }
-    .header-text h1 { color: #fff; font-size: 28px; font-weight: bold; }
-    .header-text p { color: #94a3b8; font-size: 14px; }
-    .badge { margin-left: auto; background: rgba(255,255,255,0.1); padding: 6px 14px; border-radius: 20px; color: #06b6d4; font-size: 12px; }
-    .main { display: flex; gap: 30px; flex: 1; }
-    .left { flex: 1; }
-    .section-title { color: #06b6d4; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
-    .analysis-types { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 15px; }
-    .analysis-card { background: rgba(6,182,212,0.1); border: 1px solid rgba(6,182,212,0.3); border-radius: 10px; padding: 18px 12px; text-align: center; }
-    .analysis-icon { font-size: 28px; margin-bottom: 8px; }
-    .analysis-title { color: #06b6d4; font-size: 12px; font-weight: 600; margin-bottom: 4px; }
-    .analysis-desc { color: #94a3b8; font-size: 9px; line-height: 1.3; }
-    .capabilities { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 15px; }
-    .cap-title { color: #fff; font-size: 12px; text-align: center; margin-bottom: 12px; }
-    .cap-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
-    .cap-item { text-align: center; padding: 10px 5px; background: rgba(6,182,212,0.05); border-radius: 8px; }
-    .cap-icon { font-size: 18px; margin-bottom: 4px; }
-    .cap-label { color: #e2e8f0; font-size: 9px; }
-    .right { width: 320px; flex-shrink: 0; }
-    .detections { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 15px; }
-    .detection { background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.3); border-radius: 10px; padding: 12px; text-align: center; }
-    .detection-icon { font-size: 22px; margin-bottom: 4px; }
-    .detection-name { color: #fca5a5; font-size: 10px; font-weight: 500; }
-    .tech-row { display: flex; gap: 8px; flex-wrap: wrap; }
-    .tech-tag { background: rgba(6,182,212,0.15); padding: 6px 12px; border-radius: 12px; color: #67e8f9; font-size: 11px; }
+    .header-text h1 { color: #fff; font-size: 36px; font-weight: bold; }
+    .header-text p { color: #94a3b8; font-size: 18px; margin-top: 5px; }
+    .badge { margin-left: auto; background: rgba(255,255,255,0.1); padding: 10px 20px; border-radius: 25px; color: #06b6d4; font-size: 14px; font-weight: 500; }
+    .main { display: flex; gap: 50px; flex: 1; }
+    .left { flex: 1.2; display: flex; flex-direction: column; }
+    .section-title { color: #06b6d4; font-size: 16px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; font-weight: 600; }
+
+    /* Analysis Types */
+    .analysis-wrapper { margin-bottom: 25px; }
+    .analysis-types { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+    .analysis-card {
+      background: rgba(6,182,212,0.1);
+      border: 2px solid rgba(6,182,212,0.3);
+      border-radius: 16px;
+      padding: 25px 20px;
+      text-align: center;
+    }
+    .analysis-icon { font-size: 42px; margin-bottom: 12px; }
+    .analysis-title { color: #06b6d4; font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+    .analysis-desc { color: #94a3b8; font-size: 12px; line-height: 1.4; }
+
+    /* Capabilities */
+    .capabilities-wrapper { flex: 1; }
+    .capabilities {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 25px;
+    }
+    .cap-title { color: #fff; font-size: 15px; text-align: center; margin-bottom: 20px; font-weight: 600; }
+    .cap-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    .cap-item { text-align: center; padding: 18px 10px; background: rgba(6,182,212,0.05); border-radius: 12px; }
+    .cap-icon { font-size: 28px; margin-bottom: 8px; }
+    .cap-label { color: #e2e8f0; font-size: 12px; }
+
+    /* Right Section */
+    .right { width: 400px; flex-shrink: 0; display: flex; flex-direction: column; }
+    .detections { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-bottom: 25px; }
+    .detection {
+      background: rgba(239,68,68,0.1);
+      border: 2px solid rgba(239,68,68,0.3);
+      border-radius: 14px;
+      padding: 18px;
+      text-align: center;
+    }
+    .detection-icon { font-size: 32px; margin-bottom: 8px; }
+    .detection-name { color: #fca5a5; font-size: 13px; font-weight: 500; }
+    .tech-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: auto; }
+    .tech-tag { background: rgba(6,182,212,0.15); padding: 10px 16px; border-radius: 14px; color: #67e8f9; font-size: 13px; }
   </style>
 </head>
 <body>
@@ -69,19 +96,35 @@
     </div>
     <div class="main">
       <div class="left">
-        <div class="section-title">🔍 Analysis Methods</div>
-        <div class="analysis-types">
-          <div class="analysis-card"><div class="analysis-icon">🔍</div><div class="analysis-title">Pattern Matching</div><div class="analysis-desc">Identifies vulnerability patterns</div></div>
-          <div class="analysis-card"><div class="analysis-icon">📊</div><div class="analysis-title">Flow Analysis</div><div class="analysis-desc">Traces execution paths</div></div>
-          <div class="analysis-card"><div class="analysis-icon">📋</div><div class="analysis-title">Reports</div><div class="analysis-desc">Detailed remediation tips</div></div>
+        <div class="analysis-wrapper">
+          <div class="section-title">🔍 Analysis Methods</div>
+          <div class="analysis-types">
+            <div class="analysis-card">
+              <div class="analysis-icon">🔍</div>
+              <div class="analysis-title">Pattern Matching</div>
+              <div class="analysis-desc">Identifies vulnerability patterns</div>
+            </div>
+            <div class="analysis-card">
+              <div class="analysis-icon">📊</div>
+              <div class="analysis-title">Flow Analysis</div>
+              <div class="analysis-desc">Traces execution paths</div>
+            </div>
+            <div class="analysis-card">
+              <div class="analysis-icon">📋</div>
+              <div class="analysis-title">Reports</div>
+              <div class="analysis-desc">Detailed remediation tips</div>
+            </div>
+          </div>
         </div>
-        <div class="capabilities">
-          <div class="cap-title">🎯 Detection Capabilities</div>
-          <div class="cap-grid">
-            <div class="cap-item"><div class="cap-icon">🔄</div><div class="cap-label">Reentrancy</div></div>
-            <div class="cap-item"><div class="cap-icon">🔐</div><div class="cap-label">Access Control</div></div>
-            <div class="cap-item"><div class="cap-icon">⛽</div><div class="cap-label">Gas Issues</div></div>
-            <div class="cap-item"><div class="cap-icon">📞</div><div class="cap-label">Unsafe Calls</div></div>
+        <div class="capabilities-wrapper">
+          <div class="capabilities">
+            <div class="cap-title">🎯 Detection Capabilities</div>
+            <div class="cap-grid">
+              <div class="cap-item"><div class="cap-icon">🔄</div><div class="cap-label">Reentrancy</div></div>
+              <div class="cap-item"><div class="cap-icon">🔐</div><div class="cap-label">Access Control</div></div>
+              <div class="cap-item"><div class="cap-icon">⛽</div><div class="cap-label">Gas Issues</div></div>
+              <div class="cap-item"><div class="cap-icon">📞</div><div class="cap-label">Unsafe Calls</div></div>
+            </div>
           </div>
         </div>
       </div>
