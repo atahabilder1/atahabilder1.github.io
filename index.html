@@ -713,6 +713,7 @@
                     <button type="submit" class="form-submit">
                         <i class="fas fa-paper-plane" aria-hidden="true"></i> Send Message
                     </button>
+                    <div class="form-message" id="form-message"></div>
                 </form>
             </div>
 
@@ -1404,6 +1405,50 @@
         // Run on load and scroll
         window.addEventListener('scroll', handleScrollAnimation);
         handleScrollAnimation();
+
+        // Contact Form Submission Handler
+        const contactForm = document.querySelector('.contact-form');
+        const formMessage = document.getElementById('form-message');
+
+        if (contactForm) {
+            contactForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+
+                const submitBtn = contactForm.querySelector('.form-submit');
+                const originalBtnText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                submitBtn.disabled = true;
+
+                try {
+                    const formData = new FormData(contactForm);
+                    const response = await fetch('https://api.web3forms.com/submit', {
+                        method: 'POST',
+                        body: formData
+                    });
+
+                    const data = await response.json();
+
+                    if (data.success) {
+                        formMessage.className = 'form-message success';
+                        formMessage.innerHTML = '<i class="fas fa-check-circle"></i> Message sent successfully!';
+                        formMessage.style.display = 'block';
+                        contactForm.reset();
+
+                        setTimeout(() => {
+                            window.location.reload();
+                        }, 2000);
+                    } else {
+                        throw new Error(data.message || 'Something went wrong');
+                    }
+                } catch (error) {
+                    formMessage.className = 'form-message error';
+                    formMessage.innerHTML = '<i class="fas fa-exclamation-circle"></i> ' + error.message;
+                    formMessage.style.display = 'block';
+                    submitBtn.innerHTML = originalBtnText;
+                    submitBtn.disabled = false;
+                }
+            });
+        }
 
     })();
     </script>
